@@ -1,20 +1,46 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+
+import HomePage from '@/components/HomePage.vue'
+import ScheduledTasks from '@/components/ScheduledTasks.vue'
+import CompletedTasks from '@/components/CompletedTasks.vue'
+import KnowledgeBase from '@/components/KnowledgeBase.vue'
+import SettingTasks from '@/components/SettingTasks.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomePage
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/inspection',
+    name: 'inspection',
+    component: () => import('@/components/inspectionDetails/InspectionView.vue') // lazy-loaded
+  },
+  {
+    path: '/inspection-detail/:id',
+    component: () => import('@/components/inspectionDetails/InspectionDetails.vue') // lazy-loaded
+  },
+  {
+    path: '/scheduled',
+    name: 'scheduled',
+    component: ScheduledTasks
+  },
+  {
+    path: '/completed',
+    name: 'completed',
+    component: CompletedTasks
+  },
+  {
+    path: '/knowledge-base',
+    name: 'knowledge-base',
+    component: KnowledgeBase
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: SettingTasks
+  },
 ]
 
 const router = createRouter({

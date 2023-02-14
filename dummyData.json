@@ -1,0 +1,189 @@
+{
+  "inspections": [
+    {
+      "id": 1,
+      "name": "Duplex woning",
+      "address": "Leeuwerikstraat 1",
+      "zipcode": "1234 AB",
+      "city": "Amsterdam",
+      "date": "2023-04-07",
+      "surveyOfDamage": {
+          "location": "Dak",
+          "newDamage": "ja",
+          "typeOfDamage": "Slijtage",
+          "date": "2023-04-07",
+          "requiredAction": "ja",
+          "description": "Dakbeschot vervangen wegens rotte plekken"
+        },
+      "overdueMaintenance": {
+          "location": "Badkamer",
+          "typeOfMaintenance": "schilderwerk, tegels",
+          "requiredAction": "no",
+          "estimatedCost": "500-1.500"
+        },
+      "technicalInstallation": {
+          "location": "Meterkast gang",
+          "typeOfInstallation": "Meterkast vervangen",
+          "reportedFailures": "Knoppen van meterkast functioneren niet naar behoren",
+          "testProcedure": "link naar pdf....",
+          "approved": "nee",
+          "comments": "Meterkast voldoet niet meer aan de huidige eisen"
+        },
+      "modifications": {
+          "existingDocs": "link naar pdf...",
+          "location": "Keuken",
+          "carriedOutBy": "Huurder",
+          "actionToTake": "Accepteren",
+          "description": "Keukenkastjes niet orgineel"
+        }
+      },
+    {
+      "id": 2,
+      "name": "Rijtjes woning",
+      "address": "RembrandtStraat 28",
+      "zipcode": "5378 GH",
+      "city": "Utrecht",
+      "date": "2022-10-23",
+      "surveyOfDamage": {
+          "location": "Woonkamer",
+          "newDamage": "nee",
+          "typeOfDamage": "Moedwillig",
+          "date": "2022-10-23",
+          "requiredAction": "ja",
+          "description": "Vloer moet opnieuw geegaliseerd worden"
+        },
+      "overdueMaintenance": {
+          "location": "Tuin",
+          "typeOfMaintenance": "Stal vervangen en opnieuw bestraten",
+          "requiredAction": "ja",
+          "estimatedCost": "1.500+"
+        },
+      "technicalInstallation": {
+          "location": "Ventilatie badkamer",
+          "typeOfInstallation": "Ventilatie raam",
+          "reportedFailures": "Gaat niet meer open",
+          "testProcedure": "link naar pdf....",
+          "approved": "nee",
+          "comments": "Ventilatie vraagt om onderhoud"
+        },
+      "modifications": {
+          "existingDocs": "link naar pdf...",
+          "location": "Toilet",
+          "carriedOutBy": "Onbekend",
+          "actionToTake": "Laten verwijderen",
+          "description": "Tegels zijn vervangen door kunststof wand"
+        }
+      },
+      {
+      "id": 3,
+      "name": "Flat",
+      "address": "Kerkstraat 1",
+      "zipcode": "8724 DC",
+      "city": "Leeuwarden",
+      "date": "2023-03-01",
+      "surveyOfDamage": {
+          "location": "Woonkamer",
+          "newDamage": "ja",
+          "typeOfDamage": "Normaal gebruik",
+          "date": "2023-03-01",
+          "requiredAction": "ja",
+          "description": "Plinten beschadigd"
+        },
+      "overdueMaintenance": {
+          "location": "Slaapkamer",
+          "typeOfMaintenance": "Beglazing",
+          "requiredAction": "ja",
+          "estimatedCost": "500-1.500"
+        },
+      "technicalInstallation": {
+          "location": "Kelder",
+          "typeOfInstallation": "Waterleiding",
+          "reportedFailures": "Waterleiding lekt",
+          "testProcedure": "link naar pdf....",
+          "approved": "nee",
+          "comments": "Leidingen moeten vervangen worden"
+        },
+      "modifications": {
+          "existingDocs": "link naar pdf...",
+          "location": "Slaapkamer",
+          "carriedOutBy": "Huurder",
+          "description": "Schrootjes tegen plafond geplakt",
+          "actionToTake": "Laten verwijderen"
+        }
+      },
+      {
+      "id": 4,
+      "name": "Flat",
+      "address": "Kerkstraat 34",
+      "zipcode": "8724 DC",
+      "city": "Leeuwarden",
+      "date": "2023-01-22",
+      "surveyOfDamage": {
+          "location": "Garage",
+          "newDamage": "ja",
+          "typeOfDamage": "geweld",
+          "date": "2023-01-22",
+          "requiredAction": "ja",
+          "description": "Garagepoort is vernield"
+        },
+      "overdueMaintenance": {
+          "location": "Buiten",
+          "typeOfMaintenance": "Dakgoten",
+          "requiredAction": "ja",
+          "estimatedCost": "0-500"
+        },
+      "technicalInstallation": {
+          "location": "Verwarmingsketel zolder",
+          "typeOfInstallation": "Verwarming",
+          "reportedFailures": "Verwarmingsketel heeft deukjes en is bekrast",
+          "testProcedure": "link naar pdf....",
+          "approved": "ja",
+          "comments": "Beschadigingen tasten de werking en de veiligheid niet aan"
+        },
+      "modifications": {
+          "existingDocs": "link naar pdf...",
+          "location": "Badkamer",
+          "carriedOutBy": "Huurder",
+          "description": "2de wasbak geplaatst",
+          "actionToTake": "Accepteren"
+        }
+      },
+      {
+      "id": 5,
+      "name": "Bungalow",
+      "address": "Chopinlaan 22",
+      "zipcode": "2365 KK",
+      "city": "Maastricht",
+      "date": "2022-11-11",
+      "surveyOfDamage": {
+          "location": "Gang",
+          "newDamage": "ja",
+          "typeOfDamage": "calamiteit",
+          "date": "2022-11-11",
+          "requiredAction": "ja",
+          "description": "Schimmel op de muur"
+        },
+      "overdueMaintenance": {
+          "location": "Hele woning",
+          "typeOfMaintenance": "Stopdozen",
+          "requiredAction": "ja",
+          "estimatedCost": "0-500"
+        },
+      "technicalInstallation": {
+          "location": "Beveiligingssysteem",
+          "typeOfInstallation": "Alarm",
+          "reportedFailures": "Sensoren reageren niet meer",
+          "testProcedure": "link naar pdf....",
+          "approved": "nee",
+          "comments": "Sensoren moeten vervangen worden"
+        },
+      "modifications": {
+          "existingDocs": "link naar pdf...",
+          "location": "Stal",
+          "carriedOutBy": "Onbekend",
+          "description": "De stal is uitgebreid met een extra ruimte",
+          "actionToTake": "Accepteren"
+        }
+    }
+  ]
+}
