@@ -143,31 +143,21 @@
 </template>
 
 <script>
-// import { getInspections } from '@/services/api'
-
 export default {
   name: 'InspectionDetails',
-  data() {
-    return {
-      inspections: [], 
-      }
+  created() {
+    this.id = +this.$route.params.id
   },
-  
   computed: {
-    // inspectionId() {
-    //   return parseInt(this.$route.params.id) // Weergeeft de id van de inpectie in de url weer
-    // },
-    // findInspection() {
-    //   return this.inspections.find(inspection => inspection.id === this.inspectionId) // Vind de juiste id van de inspectie
-    // },
-    // filterInspections() {
-    //   return this.inspections.filter(inspection => inspection.id === this.inspectionId) // Filtert de inspecties op de juiste id
-    // }
-  },
+    findInspections(){
+      return this.$store.getters['inspectionData/findInspections'](this.id)
+    },
+    filterInspections(){
+      return this.$store.getters['inspectionData/filterInspections'](this.id)
+    },
+    },   
   mounted() {
-    // getInspections().then(r => {
-    //   this.inspections = r
-    // })
+    this.$store.dispatch('inspectionData/fetchInspections') // Haalt de inspecties op
   },
 }
 </script>

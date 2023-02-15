@@ -18,7 +18,6 @@ justify-center md:p-5">
       py-3 px-5 text-xl w-10/12 rounded-md md:text-2xl md:w-full">
         <li class="inspection-info">
           <span class="font-bold">Adres:</span>
-          {{console.log(inspection.address)}}
           {{" "}}{{ inspection.address }}
         </li>
         <li class="inspection-info">
@@ -47,32 +46,15 @@ justify-center md:p-5">
 </div>
 </template>
 <script> 
-// import { getInspections } from '@/services/api'
 export default {
   name: 'InspectionView',
-  data() {
-    return {
-      inspections: [],
+  computed: {
+    sorted() {
+      return this.$store.getters['inspectionData/sortInspections']
     }
   },
-  methods:{
-   
-    },
-  computed: {
-    // sorted(){
-    //   const inspection = this.inspections
-    //     console.log(inspection)
-    //   return inspection.sort((a, b) => {
-    //     return a.date.localeCompare(b.date)
-    //   })
-  //  }
-    },
-   
   mounted() {
-    // getInspections().then(r => {
-    //   this.inspections = r
-    //   console.log(this.inspections)
-    // })
-   },
+    this.$store.dispatch('inspectionData/fetchInspections')
+  },
 }
 </script>
