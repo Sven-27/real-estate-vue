@@ -1,26 +1,37 @@
 <template>
-<div class="flex flex-col h-screen">
+<div
+  v-if="login"
+  class="flex flex-col h-screen">
   <div class="flex flex-col flex-1">      
     <HeaderGlobal />
     <!-- Hier worden de routes weergeven -->
     <router-view /> 
   </div>
   <TaskItems />
-</div> 
 <!-- link naar homepage -->
 <router-link to="/"></router-link>
+</div> 
+<LoginPage  v-if="!login"/>
+
 </template>
 
 <script>
 import HeaderGlobal from '@/components/HeaderGlobal.vue'
 import TaskItems from '@/components/TaskItems.vue'
+import LoginPage from '@/components/LoginPage.vue'
 
 export default {
   name: 'App',
   components: {
     HeaderGlobal,
     TaskItems,
-  }
+    LoginPage,
+  },
+  computed: {
+    login() {
+      return this.$store.state.loginUser.user !== ""
+    },
+  },
 }
 </script>
 
@@ -57,6 +68,9 @@ export default {
   }
   .inspection-info{
     @apply text-sm md:text-xl
+  }
+  .login-input{
+    @apply outline-none shadow shadow-[#475E6C] rounded-sm text-[#293439] md:text-2xl mt-1 md:mt-3 py-1 px-2 mb-4;
   }
 }
 

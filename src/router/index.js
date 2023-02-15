@@ -5,12 +5,18 @@ import ScheduledTasks from '@/components/ScheduledTasks.vue'
 import CompletedTasks from '@/components/CompletedTasks.vue'
 import KnowledgeBase from '@/components/KnowledgeBase.vue'
 import SettingTasks from '@/components/SettingTasks.vue'
+import LoginPage from '@/components/LoginPage.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomePage
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginPage
   },
   {
     path: '/inspection',
