@@ -43,14 +43,32 @@ justify-center md:p-5">
       </ul>
     </router-link>
   </div>
+  <LoadingStatus
+    className="flex justify-center items-center"
+    v-if="loading"
+  />
+  <Errors v-if="error" />
 </div>
 </template>
 <script> 
+import LoadingStatus from '@/components/LoadingStatus.vue'
+import Errors from '@/components/ErrorList.vue'
+
 export default {
   name: 'InspectionView',
+  components: {
+    LoadingStatus,
+    Errors
+  },
   computed: {
     sorted() {
       return this.$store.getters['inspectionData/sortInspections']
+    },
+    loading() {
+      return this.$store.state.inspectionData.loading === true
+    },
+    error() {
+      return this.$store.state.inspectionData.errors.length > 0
     }
   },
   mounted() {
