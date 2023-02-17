@@ -11,26 +11,26 @@
 <!-- link naar homepage -->
 <router-link to="/"></router-link>
 </div> 
-<LoginPage  v-if="!login"/>
+<!-- <LoginPage  v-if="!login"/> -->
 
 </template>
 
 <script>
 import HeaderGlobal from '@/components/HeaderGlobal.vue'
 import TaskItems from '@/components/TaskItems.vue'
-import LoginPage from '@/components/LoginPage.vue'
+// import LoginPage from '@/components/LoginPage.vue'
 
 export default {
   name: 'App',
   components: {
     HeaderGlobal,
     TaskItems,
-    LoginPage,
+    // LoginPage,
   },
   computed: {
-    login() {
-      return this.$store.state.loginUser.user !== ""
-    },
+    // login() {
+    //   return this.$store.state.loginUser.user !== ""
+    // },
   },
 }
 </script>

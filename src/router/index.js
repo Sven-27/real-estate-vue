@@ -6,6 +6,7 @@ import CompletedTasks from '@/components/CompletedTasks.vue'
 import KnowledgeBase from '@/components/KnowledgeBase.vue'
 import SettingTasks from '@/components/SettingTasks.vue'
 import LoginPage from '@/components/LoginPage.vue'
+import RegisterPage from '@/components/RegisterPage.vue'
 
 const routes = [
   {
@@ -17,6 +18,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginPage
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: RegisterPage
   },
   {
     path: '/inspection',

@@ -33,7 +33,8 @@ addIcons(
   BiExclamationCircleFill
 );
 
-createApp(App).use(router)
+createApp(App)
+.use(router)
 .use(store)
 .component("v-icon", OhVueIcon)
 .mount('#app')
