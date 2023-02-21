@@ -18,7 +18,9 @@ import {
   IoApps,
   BiWrench,
   CoMagnifyingGlass,
-  BiExclamationCircleFill
+  BiExclamationCircleFill,
+  BiEyeFill,
+  BiEyeSlashFill
 } from "oh-vue-icons/icons";
 
 
@@ -33,7 +35,9 @@ addIcons(
   IoApps,
   BiWrench,
   CoMagnifyingGlass,
-  BiExclamationCircleFill
+  BiExclamationCircleFill,
+  BiEyeFill,
+  BiEyeSlashFill
 );
 
 

@@ -7,4 +7,6 @@ export default {
   wrench: "bi-wrench", 
   search: "co-magnifying-glass",
   information: "bi-exclamation-circle-fill",
+  eye: "bi-eye-fill",
+  eyeSlash: "bi-eye-slash-fill",
 }

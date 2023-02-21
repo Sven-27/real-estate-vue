@@ -23,6 +23,7 @@
         value
         id="email" 
         placeholder="email" 
+        pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
         class="login-input"
         autofocus
         required
@@ -30,31 +31,65 @@
     </div>
     <div class="flex flex-col">
       <label class="md:text-2xl" for="password">Password</label>
+      <div class="flex flex-row login-input items-center">
+      <input 
+        type="text" 
+        name="password" 
+        autocomplete="false"
+        v-if="showPassword"
+        v-model="password"
+        id="password" 
+        placeholder="password" 
+        class="outline-none"
+        required
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" 
+        max="20"
+      />
       <input 
         type="password" 
         name="password" 
         autocomplete="false"
+        v-else
         v-model="password"
         id="password" 
         placeholder="password" 
-        class="login-input"
+        class="outline-none"
         required
-        min="6"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
         max="20"
       />
+      <button 
+        type="button"
+        class="outline-none h-full flex items-center"
+        @click="toggleShow"
+      >
+          <v-icon 
+            v-if="!showPassword"
+            :name="icons.eye" 
+            class="text-[#00AAA2] w-[1.3rem] h-[1.3rem] 
+            md:w-[1.7rem] md:h-[1.7rem]"
+          />
+          <v-icon 
+            v-if="showPassword"
+            :name="icons.eyeSlash" 
+            class="text-[#00AAA2] w-[1.3rem] h-[1.3rem] 
+            md:w-[1.7rem] md:h-[1.7rem]"
+          />
+      </button>
+      </div>
     </div>
     <div class="flex justify-center items-center">
       <button 
         type="submit"
         class="bg-[#00AAA2] text-white text-lg md:text-3xl 
-        py-2 px-4 rounded-md mt-4 md:mt-8"
+        py-2 px-4 rounded-md mt-4 mb-4 md:mt-8 md:mb-8"
       >
         Login
       </button>
     </div>
     <div>
       <p class="text-[#293439] text-lg md:text-2xl">
-        Don't have an account yet?  
+        No account?  
       <router-link to="/register" class="text-[#00AAA2] text-lg md:text-2xl">
          Register here
       </router-link>
@@ -67,9 +102,26 @@
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+import icons from '@/data/icons'
 
 export default {
   name: 'LoginPage',
+  data() {
+    return {
+      icons,
+      showPassword: false,
+    };
+  },
+  computed: {
+    buttonLabel() {
+      return (this.showPassword) ? "Hide" : "Show";
+    }
+  },
+  methods: {
+    toggleShow() {
+      this.showPassword = !this.showPassword;
+    }
+  },
  setup() {
     const email = ref('')
     const password = ref('')

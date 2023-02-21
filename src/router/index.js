@@ -86,9 +86,6 @@ function getCurrentUser() {
 router.beforeEach(async (to) => {
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
   if (requiresAuth && !(await getCurrentUser())) {
-    return '/register'
-  }
-  if (requiresAuth && (await getCurrentUser())) {
     return '/login'
   }
 })
