@@ -1,10 +1,106 @@
 <template>
-<div>
-
+<div class="h-screen flex flex-col justify-center 
+  items-center bg-gray-100 text-[#00AAA2]">
+  <div class="pb-9 md:pb-28">
+    <img src="@/assets/logos/logo-horizontal.svg" 
+      alt="logo" 
+      class="w-48 md:w-96" 
+    />
+  </div>
+  <div v-if="error">{{ error }}</div>
+  <form
+    action="#"
+    @submit.prevent="Register" 
+    class="shadow shadow-[#475E6C] rounded-md md:rounded-2xl p-8 md:p-20">
+    <legend class="text-[#293439] pb-4 uppercase text-lg md:text-4xl font-semibold">Register</legend>
+    <div class="flex flex-col">
+      <label class="md:text-2xl" for="name">Name</label>
+      <input 
+        type="text" 
+        name="name" 
+        autocomplete="true"
+        v-model="name"
+        value
+        id="name" 
+        placeholder="name" 
+        class="login-input"
+        autofocus
+        required
+      />
+    </div>
+    <div class="flex flex-col">
+      <label class="md:text-2xl" for="email">Email</label>
+      <input 
+        type="email" 
+        name="email" 
+        autocomplete="true"
+        v-model="email"
+        value
+        id="email" 
+        placeholder="email" 
+        class="login-input"
+        autofocus
+        required
+      />
+    </div>
+    <div class="flex flex-col">
+      <label class="md:text-2xl" for="password">Password</label>
+      <input 
+        type="password" 
+        name="password" 
+        autocomplete="false"
+        v-model="password"
+        id="password" 
+        placeholder="password" 
+        class="login-input"
+        required
+        min="6"
+        max="20"
+      />
+    </div>
+    <div class="flex justify-center items-center">
+      <button 
+        type="submit"
+        class="bg-[#00AAA2] text-white text-lg md:text-3xl 
+        py-2 px-4 rounded-md mt-4 md:mt-8"
+      >
+        Register
+      </button>
+    </div>
+  </form>
 </div>
 </template>
 <script>
+import { ref } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+
 export default {
   name: 'RegisterPage',
-}
+ setup() {
+    const name = ref('')
+    const email = ref('')
+    const password = ref('')
+    const error = ref(null)
+
+    const store = useStore()
+    const router = useRouter()
+
+    const Register = async () => {
+      try {
+        await store.dispatch('firebase/register', {
+          email: email.value,
+          password: password.value,
+          name: name.value
+        })
+        router.push('/')
+      }
+      catch (err) {
+        error.value = err.message
+            }
+    }
+
+    return { Register, name, email, password, error }
+  }
+};
 </script>

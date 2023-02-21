@@ -24,6 +24,12 @@
     </router-link>
     <div class="flex box-border w-50 items-center 
     pr-3 md:pr-7">
+    <div class="mr-4">
+      <button 
+        @click.prevent="signOut"
+        class="outline-none bg-[#00AAA2] p-3 text-[#293439]"  
+      >Log Out</button>
+    </div>
       <v-icon 
         :name="icons.bell" 
         class="text-[#ddd] w-[1.3rem] h-[1.3rem] 
@@ -41,6 +47,10 @@
 <script>
 import mixin from '@/mixins/mixins'
 import icons from '@/data/icons'
+import { useStore} from "vuex";
+import { useRouter } from "vue-router";
+import {computed} from "vue";
+import { auth } from '../firebaseConfig'
 
 export default {
   name: 'HeaderGlobal',
@@ -49,6 +59,26 @@ export default {
     return {
       icons
     }
+  },
+  setup() {
+
+  const store = useStore()
+  const router = useRouter()
+
+  auth.onAuthStateChanged(user => {
+    store.dispatch("firebase/fetchUser", user);
+  });
+
+  const user = computed(() => {
+    return store.getters.user;
+  });
+
+  const signOut = async () => {
+        await store.dispatch('firebase/logOut')
+        router.push('/login')
   }
+
+    return {user,signOut}
+ }
 }
 </script>

@@ -1,37 +1,51 @@
 <template>
 <div
-  v-if="login"
   class="flex flex-col h-screen">
   <div class="flex flex-col flex-1">      
-    <HeaderGlobal />
-    <!-- Hier worden de routes weergeven -->
-    <router-view /> 
+    <HeaderGlobal v-if="user.loggedIn" />
+    <router-view />
   </div>
-  <TaskItems />
-<!-- link naar homepage -->
-<router-link to="/"></router-link>
+  <TaskItems v-if="user.loggedIn" />
 </div> 
-<!-- <LoginPage  v-if="!login"/> -->
-
 </template>
 
 <script>
 import HeaderGlobal from '@/components/HeaderGlobal.vue'
 import TaskItems from '@/components/TaskItems.vue'
-// import LoginPage from '@/components/LoginPage.vue'
-
+// import HomeWrapper from '@/components/HomeWrapper.vue'
+// import LoginWrapper from '@/components/LoginWrapper.vue'
+import { useStore} from "vuex";
+// import { useRouter } from "vue-router";
+import {computed} from "vue";
+import { auth } from '@/firebaseConfig'
 export default {
   name: 'App',
   components: {
     HeaderGlobal,
     TaskItems,
-    // LoginPage,
+    // HomeWrapper,
+    // LoginWrapper,
   },
-  computed: {
-    // login() {
-    //   return this.$store.state.loginUser.user !== ""
-    // },
-  },
+   setup() {
+
+  const store = useStore()
+  // const router = useRouter()
+
+  auth.onAuthStateChanged(user => {
+    store.dispatch("firebase/fetchUser", user);
+  });
+
+  const user = computed(() => {
+    return store.getters['firebase/user'];
+  });
+
+  // const signOut = async () => {
+  //       await store.dispatch('logOut')
+  //       router.push('/')
+  // }
+
+    return {user}
+ }
 }
 </script>
 
