@@ -3,7 +3,7 @@ import {
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword, 
   signOut,
-  updateProfile
+  updateProfile,
 } from 'firebase/auth'
 
 export default {
@@ -11,7 +11,8 @@ export default {
   state: {
     user: {
       loggedIn: false,
-      data: null
+      data: null,
+      emailSending: false
     }
   },
   getters: {
@@ -33,8 +34,9 @@ export default {
       if (response) {
         context.commit('SET_USER', response.user)
         updateProfile(response.user, {displayName: name})
-      } else {
-        throw new Error('Unable to register user')
+      } 
+      else {
+        console.error('register failed')
       }
     },
 
@@ -62,6 +64,7 @@ export default {
       } else {
         context.commit("SET_USER", null);
       }
-    }
+    },
+
   },
 }

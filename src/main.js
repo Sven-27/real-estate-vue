@@ -20,7 +20,8 @@ import {
   CoMagnifyingGlass,
   BiExclamationCircleFill,
   BiEyeFill,
-  BiEyeSlashFill
+  BiEyeSlashFill,
+  BiPencilFill
 } from "oh-vue-icons/icons";
 
 
@@ -37,7 +38,8 @@ addIcons(
   CoMagnifyingGlass,
   BiExclamationCircleFill,
   BiEyeFill,
-  BiEyeSlashFill
+  BiEyeSlashFill,
+  BiPencilFill
 );
 
 

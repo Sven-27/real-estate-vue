@@ -9,7 +9,6 @@ import KnowledgeBase from '@/components/KnowledgeBase.vue'
 import SettingTasks from '@/components/SettingTasks.vue'
 import LoginPage from '@/components/LoginPage.vue'
 import RegisterPage from '@/components/RegisterPage.vue'
-// import DashboardPage from '@/components/DashboardPage.vue'
 
 const routes = [
   {

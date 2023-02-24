@@ -27,7 +27,7 @@
     <div class="mr-4">
       <button 
         @click.prevent="signOut"
-        class="outline-none bg-[#00AAA2] p-3 text-[#293439]"  
+        class="outline-none bg-[#00AAA2] rounded-md py-1 px-2 md:p-3 text-[0.7rem] md:text-[1.4rem] text-[#fff]"  
       >Log Out</button>
     </div>
       <v-icon 
@@ -35,11 +35,13 @@
         class="text-[#ddd] w-[1.3rem] h-[1.3rem] 
         md:w-[2.5rem] md:h-[2.5rem] mr-4 md:mr-7" 
       />
+      <router-link to="/settings">
       <v-icon 
         :name="icons.gear" 
         class="text-[#ddd] w-[1.3rem] h-[1.3rem] 
         md:w-[2.5rem] md:h-[2.5rem] mr-4 md:mr-7" 
       />
+      </router-link>
     </div>
   </div>
 </header>

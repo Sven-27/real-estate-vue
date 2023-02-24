@@ -9,4 +9,5 @@ export default {
   information: "bi-exclamation-circle-fill",
   eye: "bi-eye-fill",
   eyeSlash: "bi-eye-slash-fill",
+  pencil: "bi-pencil-fill",
 }

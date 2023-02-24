@@ -42,8 +42,6 @@
         placeholder="password" 
         class="outline-none"
         required
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" 
-        max="20"
       />
       <input 
         type="password" 
@@ -55,8 +53,6 @@
         placeholder="password" 
         class="outline-none"
         required
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-        max="20"
       />
       <button 
         type="button"
@@ -110,6 +106,7 @@ export default {
     return {
       icons,
       showPassword: false,
+      // msg: ''
     };
   },
   computed: {
@@ -120,17 +117,18 @@ export default {
   methods: {
     toggleShow() {
       this.showPassword = !this.showPassword;
-    }
+    },
   },
  setup() {
     const email = ref('')
-    const password = ref('')
+    const password = ref(null)
     const error = ref(null)
 
     const store = useStore()
     const router = useRouter()
-
+    
     const Login = async () => {
+      // const regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
       try {
         await store.dispatch('firebase/logIn', {
           email: email.value,
@@ -140,10 +138,11 @@ export default {
       }
       catch (err) {
         error.value = err.message
-            }
-    }
+        }
+    } 
+
 
     return { Login, email, password, error }
-  }
+  },
 };
 </script>
