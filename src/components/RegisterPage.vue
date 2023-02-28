@@ -7,7 +7,6 @@
       class="w-48 md:w-96" 
     />
   </div>
-  <div v-if="error">{{ error }}</div>
   <form
     action="#"
     @submit.prevent="Register" 
@@ -23,7 +22,7 @@
         value
         id="name" 
         placeholder="name" 
-        class="login-input"
+        class="login-input flex flex-1"
         autofocus
         required
       />
@@ -38,8 +37,7 @@
         value
         id="email" 
         placeholder="email" 
-        pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
-        class="login-input"
+        class="login-input flex flex-1"
         autofocus
         required
       />
@@ -57,8 +55,6 @@
         placeholder="password" 
         class="outline-none"
         required
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-        max="20"
       />
       <input 
         type="password" 
@@ -68,30 +64,31 @@
         v-model="password"
         id="password" 
         placeholder="password" 
-        class="outline-none"
+        class="outline-none flex flex-1"
         required
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-        max="20"
       />
       <button 
         type="button"
         class="outline-none h-full flex items-center"
         @click="toggleShow"
       >
-          <v-icon 
-            v-if="!showPassword"
-            :name="icons.eye" 
-            class="text-[#00AAA2] w-[1.3rem] h-[1.3rem] 
-            md:w-[1.7rem] md:h-[1.7rem]"
-          />
-          <v-icon 
-            v-if="showPassword"
-            :name="icons.eyeSlash" 
-            class="text-[#00AAA2] w-[1.3rem] h-[1.3rem] 
-            md:w-[1.7rem] md:h-[1.7rem]"
-          />
+        <v-icon 
+          v-if="!showPassword"
+          :name="icons.eye" 
+          class="text-[#00AAA2] w-[1.3rem] h-[1.3rem] 
+          md:w-[1.7rem] md:h-[1.7rem]"
+        />
+        <v-icon 
+          v-if="showPassword"
+          :name="icons.eyeSlash" 
+          class="text-[#00AAA2] w-[1.3rem] h-[1.3rem] 
+          md:w-[1.7rem] md:h-[1.7rem]"
+        />
       </button>
-      </div>
+    </div>
+    <div 
+      v-if="error"
+      class="text-red-500 text-md">{{ error }}</div>
     </div>
     <div class="flex justify-center items-center">
       <button 
@@ -122,12 +119,12 @@ export default {
   computed: {
     buttonLabel() {
       return (this.showPassword) ? "Hide" : "Show";
-    }
+    },
   },
   methods: {
     toggleShow() {
       this.showPassword = !this.showPassword;
-    }
+    },
   },
  setup() {
     const name = ref('')
@@ -148,9 +145,28 @@ export default {
         router.push('/')
       }
       catch (err) {
-        error.value = err.message
-            }
-    }
+        console.log(err.code)
+        switch(err.code) {
+          case 'auth/email-already-in-use':
+            error.value = "Email is al in gebruik"
+            break
+          case 'auth/invalid-email':
+            error.value = "Email is ongeldig"
+            break
+          case 'auth/weak-password':
+            error.value = "Wachtwoord moet minimaal 6 tekens bevatten"
+            break
+          case 'auth/operation-not-allowed':
+            error.value = "Registratie is niet toegestaan"
+            break
+          case 'auth/invalid-password':
+            error.value = "Wachtwoord is ongeldig"
+            break
+          default:
+            error.value = "Er is iets fout gegaan"
+          }
+        }
+      }
 
     return { Register, name, email, password, error }
   }

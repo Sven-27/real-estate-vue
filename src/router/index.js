@@ -9,6 +9,7 @@ import KnowledgeBase from '@/components/KnowledgeBase.vue'
 import SettingTasks from '@/components/SettingTasks.vue'
 import LoginPage from '@/components/LoginPage.vue'
 import RegisterPage from '@/components/RegisterPage.vue'
+import ResetPassword from '@/components/ResetPassword.vue'
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     path: '/register',
     name: 'register',
     component: RegisterPage
+  },
+  {
+    path: '/reset-password',
+    name: 'reset-password',
+    component: ResetPassword
   },
   {
     path: '/inspection',

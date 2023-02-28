@@ -7,7 +7,6 @@
       class="w-48 md:w-96" 
     />
   </div>
-  <div v-if="error">{{ error }}</div>
   <form
     action="#"
     @submit.prevent="Login" 
@@ -23,8 +22,7 @@
         value
         id="email" 
         placeholder="email" 
-        pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
-        class="login-input"
+        class="login-input flex flex-1"
         autofocus
         required
       />
@@ -32,33 +30,33 @@
     <div class="flex flex-col">
       <label class="md:text-2xl" for="password">Password</label>
       <div class="flex flex-row login-input items-center">
-      <input 
-        type="text" 
-        name="password" 
-        autocomplete="false"
-        v-if="showPassword"
-        v-model="password"
-        id="password" 
-        placeholder="password" 
-        class="outline-none"
-        required
-      />
-      <input 
-        type="password" 
-        name="password" 
-        autocomplete="false"
-        v-else
-        v-model="password"
-        id="password" 
-        placeholder="password" 
-        class="outline-none"
-        required
-      />
-      <button 
-        type="button"
-        class="outline-none h-full flex items-center"
-        @click="toggleShow"
-      >
+        <input 
+          type="text" 
+          name="password" 
+          autocomplete="false"
+          v-if="showPassword"
+          v-model="password"
+          id="password" 
+          placeholder="password" 
+          class="outline-none flex flex-1"
+          required
+        />
+        <input 
+          type="password" 
+          name="password" 
+          autocomplete="false"
+          v-else
+          v-model="password"
+          id="password" 
+          placeholder="password" 
+          class="outline-none flex flex-1"
+          required
+        />
+        <button 
+          type="button"
+          class="outline-none h-full flex items-center"
+          @click="toggleShow"
+        >
           <v-icon 
             v-if="!showPassword"
             :name="icons.eye" 
@@ -71,8 +69,12 @@
             class="text-[#00AAA2] w-[1.3rem] h-[1.3rem] 
             md:w-[1.7rem] md:h-[1.7rem]"
           />
-      </button>
+        </button>
       </div>
+    <div 
+      v-if="error"
+      class="text-red-500 text-lg md:text-md"
+    >{{ error }}</div>
     </div>
     <div class="flex justify-center items-center">
       <button 
@@ -84,10 +86,18 @@
       </button>
     </div>
     <div>
-      <p class="text-[#293439] text-lg md:text-2xl">
-        No account?  
-      <router-link to="/register" class="text-[#00AAA2] text-lg md:text-2xl">
-         Register here
+      <p class="text-[#293439] text-md md:text-2xl">
+        Geen account?  
+      <router-link to="/register" class="text-[#00AAA2] text-md md:text-2xl">
+         Registreer hier
+      </router-link>
+      </p>
+    </div>
+    <div>
+      <p class="text-[#293439] text-md md:text-2xl">
+        Wachtwoord vergeten?  
+      <router-link to="/reset-password" class="text-[#00AAA2] text-md md:text-2xl">
+         Klik hier
       </router-link>
       </p>
     </div>
@@ -106,7 +116,6 @@ export default {
     return {
       icons,
       showPassword: false,
-      // msg: ''
     };
   },
   computed: {
@@ -128,7 +137,6 @@ export default {
     const router = useRouter()
     
     const Login = async () => {
-      // const regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
       try {
         await store.dispatch('firebase/logIn', {
           email: email.value,
@@ -137,12 +145,29 @@ export default {
         router.push('/')
       }
       catch (err) {
-        error.value = err.message
+        console.log(err.code)
+        switch(err.code) {
+          case 'auth/invalid-email':
+            error.value = 'email heeft geen geldig formaat'
+            break
+          case 'auth/user-disabled':
+            error.value = 'Account is tijdelijk geblokkeerd'
+            break
+          case 'auth/user-not-found':
+            error.value = 'Account niet gevonden'
+            break
+          case 'auth/wrong-password':
+            error.value = 'Onjuist wachtwoord'
+            break
+          default:
+            error.value = 'Something went wrong'
+            break
         }
     } 
-
+    }
 
     return { Login, email, password, error }
   },
+ 
 };
 </script>

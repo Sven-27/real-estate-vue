@@ -14,7 +14,7 @@
     class="oh-vue-header rotate-180" 
   />
   </div>
-  <div class="flex bg-[#293439] justify-between">
+  <div class="flex bg-[#293439] border-b dark:border-1 border-slate-200 justify-between">
     <router-link to="/">
       <img 
         :src="getImgUrl('logo-horizontal-light.svg')" 
@@ -27,19 +27,17 @@
     <div class="mr-4">
       <button 
         @click.prevent="signOut"
-        class="outline-none bg-[#00AAA2] rounded-md py-1 px-2 md:p-3 text-[0.7rem] md:text-[1.4rem] text-[#fff]"  
+        class="outline-none bg-[#00AAA2] rounded-md py-1 px-2 
+        md:p-3 text-[0.7rem] md:text-[1.4rem] text-[#fff]
+       hover:bg-[#39b7b1]"  
       >Log Out</button>
     </div>
-      <v-icon 
-        :name="icons.bell" 
-        class="text-[#ddd] w-[1.3rem] h-[1.3rem] 
-        md:w-[2.5rem] md:h-[2.5rem] mr-4 md:mr-7" 
-      />
       <router-link to="/settings">
       <v-icon 
         :name="icons.gear" 
         class="text-[#ddd] w-[1.3rem] h-[1.3rem] 
-        md:w-[2.5rem] md:h-[2.5rem] mr-4 md:mr-7" 
+        md:w-[2.5rem] md:h-[2.5rem] mr-4 md:mr-7
+        hover:text-[#ffffff55]" 
       />
       </router-link>
     </div>

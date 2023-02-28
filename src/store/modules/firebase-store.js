@@ -12,7 +12,6 @@ export default {
     user: {
       loggedIn: false,
       data: null,
-      emailSending: false
     }
   },
   getters: {
@@ -34,6 +33,7 @@ export default {
       if (response) {
         context.commit('SET_USER', response.user)
         updateProfile(response.user, {displayName: name})
+        console.log(response.user)
       } 
       else {
         console.error('register failed')
@@ -44,6 +44,7 @@ export default {
       const response = await signInWithEmailAndPassword(auth, email, password)
       if (response) {
         context.commit('SET_USER', response.user)
+        console.log(response.user)
       } else {
         throw new Error('login failed')
       }
@@ -65,6 +66,5 @@ export default {
         context.commit("SET_USER", null);
       }
     },
-
   },
 }

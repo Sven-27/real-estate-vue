@@ -1,10 +1,10 @@
 <template>
 <div class="flex justify-between md:justify-evenly 
 w-full bg-[#00AAA2] py-2  xl:py-0 px-8">
-  <div class="task-container text-[#ffffff]">
+  <div class="task-container">
     <v-icon 
       :name="icons.wrench" 
-      class="oh-vue-task text-white" 
+      class="oh-vue-task" 
     />
     <p>active task</p>
   </div>

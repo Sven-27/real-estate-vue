@@ -1,9 +1,9 @@
 <template>
 <div
-  class="flex flex-col h-screen">
+  class="flex flex-col h-screen dark:bg-[#293439] dark:text-slate-200">
   <div class="flex flex-col flex-1">      
     <HeaderGlobal v-if="user.loggedIn" />
-    <router-view />
+    <router-view  />
   </div>
   <TaskItems v-if="user.loggedIn" />
 </div> 
@@ -12,24 +12,19 @@
 <script>
 import HeaderGlobal from '@/components/HeaderGlobal.vue'
 import TaskItems from '@/components/TaskItems.vue'
-// import HomeWrapper from '@/components/HomeWrapper.vue'
-// import LoginWrapper from '@/components/LoginWrapper.vue'
 import { useStore} from "vuex";
-// import { useRouter } from "vue-router";
 import {computed} from "vue";
 import { auth } from '@/firebaseConfig'
+
 export default {
   name: 'App',
   components: {
     HeaderGlobal,
     TaskItems,
-    // HomeWrapper,
-    // LoginWrapper,
   },
    setup() {
 
   const store = useStore()
-  // const router = useRouter()
 
   auth.onAuthStateChanged(user => {
     store.dispatch("firebase/fetchUser", user);
@@ -38,14 +33,8 @@ export default {
   const user = computed(() => {
     return store.getters['firebase/user'];
   });
-
-  // const signOut = async () => {
-  //       await store.dispatch('logOut')
-  //       router.push('/')
-  // }
-
     return {user}
- }
+ },
 }
 </script>
 
@@ -72,13 +61,13 @@ export default {
     @apply text-[#ffffff55] w-[0.9rem] h-[0.9rem] md:w-[1.3rem] md:h-[1.3rem] mr-[0.4rem] md:mr-[.9rem] my-1;
   }
   .oh-vue-task{
-    @apply text-[#ffffff66] w-[1.8rem] h-[1.8rem] md:w-[3rem] md:h-[3rem] pr-[.4rem] py-1;
+    @apply text-[#fff] w-[1.8rem] h-[1.8rem] md:w-[3rem] md:h-[3rem] pr-[.4rem] py-1;
   }
   .task-container{
-    @apply flex flex-col justify-center items-center text-[.8rem] md:text-[1.3rem] text-[#ffffff66];
+    @apply flex flex-col justify-center items-center text-[.8rem] md:text-[1.3rem] text-[#fff] rounded-md px-3 hover:bg-[#4dcbc4];
   }
   .oh-vue-card {
-    @apply text-[#293439] w-[6rem] h-[6rem] pr-[.4rem] py-1 md:w-[9rem] md:h-[9rem];
+    @apply text-[#293439] dark:text-slate-200 w-[6rem] h-[6rem] pr-[.4rem] py-1 md:w-[9rem] md:h-[9rem];
   }
   .inspection-info{
     @apply text-sm md:text-xl
@@ -105,14 +94,20 @@ export default {
     @apply text-sm md:text-xl
   }
   .card {
-    background-color: theme('colors.white');
     border-radius: theme('borderRadius.lg');
     padding: theme('spacing.6');
     box-shadow: theme('boxShadow.2xl');
   }
+  .card:hover {
+    background-color: #ffffff55;
+  }
 }
 
 @layer utilities{
+  *{
+    @apply m-0 p-0 box-border transition-all duration-200 ease-in-out;
+  }
+
   body{
     @apply text-[#293439] bg-slate-200;
   }

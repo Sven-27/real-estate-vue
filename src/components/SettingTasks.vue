@@ -1,89 +1,102 @@
 <template>
-<main class="p-3 card m-2 ">
+<main class=" card m-2 md:m-5 grid place-self-center md:w-[600px] ">
   <section class="flex flex-col relative w-full justify-center items-center">
-  <h1 class="text-xl font-bold">Account gegevens</h1>
-  <figure class="">
+  <h1 class="text-xl md:text-4xl font-bold">Account gegevens</h1>
+  <figure class="my-4 md:my-8">
     <img 
-      class="w-12 h-12 my-4 rounded-full ring-1 ring-gray-300 dark:ring-[#293439]" 
-      src="@/assets/images/sven.jpg" 
+      class="w-16 h-16 md:w-28 md:h-28  rounded-full ring-1 ring-gray-300 dark:ring-[#293439]" 
+      src="@/assets/images/aap.jpeg" 
       alt="Bordered avatar"
     >
   </figure>
-  <v-icon 
-    :name="icons.pencil" 
-    class="oh-vue-header text-[#293439] absolute right-0 top-0 z-10" 
-  />
   </section>
   <section>
-    <p class="font-semibold text-lg">Naam: 
-      <span class="font-normal">Sven Notermans</span>
+    <p class="font-semibold text-lg md:text-2xl">Naam: 
+      <span class="font-normal">{{ user }}</span>
     </p>
-    <p class="font-semibold text-lg">ID: 
-      <span class="font-normal">#2754</span>
+    <p class="font-semibold text-lg md:text-2xl">ID: 
+      <span class="font-normal">#75093</span>
     </p>
-    <p class="font-semibold text-lg">Functie: 
+    <p class="font-semibold text-lg md:text-2xl">Functie: 
       <span class="font-normal">Inspecteur</span>
     </p>
-    <p class="font-semibold text-lg">Email: 
-      <span class="font-normal">example@test.com</span>
+    <p class="font-semibold text-lg md:text-2xl">Email: 
+      <span class="font-normal">{{ email }}</span>
     </p>
-    <p class="font-semibold text-lg">Wachtwoord: 
-      <span class="font-normal">real-2548-estate</span>
+    <p class="font-semibold text-lg md:text-2xl">Wachtwoord: 
+      <span class="font-normal">********</span>
     </p>
   </section>
-  <hr class="my-3">
+  <hr class="my-3 md:my-6">
   <section class="flex flex-col relative w-full">
-    <v-icon 
-      :name="icons.pencil" 
-      class="oh-vue-header text-[#293439] absolute right-0 top-0 z-10" 
-    />
-    <p class="font-semibold text-lg">Darkmode: 
-      <input 
-        type="checkbox" 
-        class="ml-2 w-4 h-4 text-[#00AAA2] bg-gray-100 border-gray-300 rounded 
-        focus:ring-[#00AAA2] dark:focus:ring-[#00AAA2] dark:ring-offset-[#293439] 
-        focus:ring-2 dark:bg-[#293439] dark:border-[#293439]"
-      >
-    </p>
-    <p class="font-semibold text-lg">Meldingen tonen: 
-      <input 
-        type="checkbox" 
-        class="ml-2 w-4 h-4 text-[#00AAA2] bg-gray-100 border-gray-300 rounded 
-        focus:ring-[#00AAA2] dark:focus:ring-[#00AAA2] dark:ring-offset-[#293439] 
-        focus:ring-2 dark:bg-[#293439] dark:border-[#293439]"
-      >
-    </p>
-    <p class="font-semibold text-lg">Geluiden aan: 
-      <input 
-        type="checkbox" 
-        class="ml-2 w-4 h-4 text-[#00AAA2] bg-gray-100 border-gray-300 rounded 
-        focus:ring-[#00AAA2] dark:focus:ring-[#00AAA2] dark:ring-offset-[#293439] 
-        focus:ring-2 dark:bg-[#293439] dark:border-[#293439]"
-      >
+    <p class="font-semibold  text-lg md:text-2xl flex items-center justify-between">Darkmode: 
+      <button
+      @click="toggleDark()"
+      class="text-sm px-3 py-1 text-white bg-gray-600 dark:bg-[#00AAA2]"
+    >
+      Toggle
+    </button>
     </p>
   </section>
-  <hr class="my-3">
-  <div class="grid place-items-center">
+  <hr class="my-3 md:my-6">
+  <div class="grid place-items-center mb-4">
     <button 
-      type="submit"
+      @click="deleteAccount"
       class="bg-[#00AAA2] text-white text-lg md:text-3xl 
-      py-2 px-8 rounded-md mt-4 md:mt-8"
+      py-2 px-8 rounded-md mt-4 md:mt-8 hover:bg-[#39b7b1]"
     >
       Delete account
     </button>
+  </div>
+  <div v-if="msg" class="text-red-500 text-center">
+    {{ msg }}
   </div>
 </main>
 </template>
 
 <script>
 import icons from '@/data/icons'
+import { auth } from '@/firebaseConfig'
+import { deleteUser } from 'firebase/auth' 
+import { useRouter } from 'vue-router'
 
 export default {
   name: 'SettingTasks',
   data() {
     return {
-      icons
+      icons,
+      router: useRouter(),
+      msg: ''
     }
+  },
+  methods: {
+    deleteAccount() {
+    const user = auth.currentUser;
+     
+    deleteUser(user).then(() => {
+      this.msg = 'Account deleted'
+      this.router.push('/login')
+      }).catch((error) => {
+       this.msg = error.message
+      });
+    }
+  },
+  computed: {
+    user() {
+      const data = this.$store.getters['firebase/user']
+      return data.data.displayName
+    },
+    email(){
+      const data = this.$store.getters['firebase/user']
+      return data.data.email
+    },
   }
 }
+</script>
+
+<script setup>
+import { useDark, useToggle } from '@vueuse/core';
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 </script>
