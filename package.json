@@ -15,6 +15,7 @@
     "firebase": "^9.17.1",
     "json-server": "^0.17.1",
     "oh-vue-icons": "^1.0.0-rc3",
+    "tw-elements": "^1.0.0-beta1",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"

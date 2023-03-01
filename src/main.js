@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 import firebase from "firebase/compat/app";
+import * as te from 'tw-elements';
 
 import { 
   BiSquareFill,
@@ -43,6 +44,7 @@ addIcons(
 createApp(App)
 .use(router)
 .use(store)
+.use(te) 
 .use(firebase)
 .component("v-icon", OhVueIcon)
 .mount('#app')
