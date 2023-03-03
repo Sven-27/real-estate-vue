@@ -6,6 +6,7 @@ import { OhVueIcon, addIcons } from "oh-vue-icons";
 import firebase from "firebase/compat/app";
 import * as te from 'tw-elements';
 
+
 import { 
   BiSquareFill,
   BiCircleFill, 
@@ -20,7 +21,11 @@ import {
   BiExclamationCircleFill,
   BiEyeFill,
   BiEyeSlashFill,
-  BiPencilFill
+  BiPencilFill,
+  BiMoonStarsFill,
+  BiEmojiSunglassesFill,
+  GiClick
+
 } from "oh-vue-icons/icons";
 
 
@@ -38,7 +43,10 @@ addIcons(
   BiExclamationCircleFill,
   BiEyeFill,
   BiEyeSlashFill,
-  BiPencilFill
+  BiPencilFill,
+  BiMoonStarsFill,
+  BiEmojiSunglassesFill,
+  GiClick
 );
 
 createApp(App)

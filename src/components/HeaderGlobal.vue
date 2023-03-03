@@ -24,7 +24,7 @@
     </router-link>
     <div class="flex box-border w-50 items-center 
     pr-3 md:pr-7">
-    <div class="mr-4">
+    <div class="mr-4 flex">
       <button 
         @click.prevent="signOut"
         class="outline-none bg-[#00AAA2] rounded-md py-1 px-2 
@@ -32,6 +32,7 @@
        hover:bg-[#39b7b1]"  
       >Log Out</button>
     </div>
+    <ToggleDarkmode />
       <router-link to="/settings">
       <v-icon 
         :name="icons.gear" 
@@ -51,15 +52,20 @@ import { useStore} from "vuex";
 import { useRouter } from "vue-router";
 import {computed} from "vue";
 import { auth } from '../firebaseConfig'
+import ToggleDarkmode from '@/components/ToggleDarkmode.vue'
 
 export default {
   name: 'HeaderGlobal',
   mixins: [mixin], // Haalt de functie getImgUrl() op uit de mixin
   data() {
     return {
-      icons
+      icons,
     }
   },
+  components: {
+    ToggleDarkmode,
+  },
+
   setup() {
 
   const store = useStore()
@@ -79,6 +85,6 @@ export default {
   }
 
     return {user,signOut}
- }
+ },
 }
 </script>

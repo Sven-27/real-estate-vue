@@ -118,11 +118,6 @@ export default {
       showPassword: false,
     };
   },
-  computed: {
-    buttonLabel() {
-      return (this.showPassword) ? "Hide" : "Show";
-    }
-  },
   methods: {
     toggleShow() {
       this.showPassword = !this.showPassword;

@@ -29,16 +29,9 @@
   </section>
   <hr class="my-3 md:my-6">
   <section class="flex flex-col relative w-full">
-    <p class="font-semibold  text-lg md:text-2xl flex items-center justify-between">Darkmode: 
-      <button
-      @click="toggleDark()"
-      class="text-sm px-3 py-1 text-white bg-gray-600 dark:bg-[#00AAA2]"
-    >
-      Toggle
-    </button>
-    </p>
-  </section>
-  <hr class="my-3 md:my-6">
+  <p class="font-semibold text-lg md:text-2xl flex items-center ">
+    Darkmode: <span class="pl-4"></span>
+  </p>
   <div class="grid place-items-center mb-4">
     <button 
       @click="deleteAccount"
@@ -48,6 +41,7 @@
       Delete account
     </button>
   </div>
+  </section>
   <div v-if="msg" class="text-red-500 text-center">
     {{ msg }}
   </div>
@@ -59,14 +53,18 @@ import icons from '@/data/icons'
 import { auth } from '@/firebaseConfig'
 import { deleteUser } from 'firebase/auth' 
 import { useRouter } from 'vue-router'
+// import ToggleDarkmode from '@/components/ToggleDarkmode.vue'
 
 export default {
   name: 'SettingTasks',
+  // components: {
+  //   ToggleDarkmode,
+  // },
   data() {
     return {
       icons,
       router: useRouter(),
-      msg: ''
+      msg: '',
     }
   },
   methods: {
@@ -79,7 +77,7 @@ export default {
       }).catch((error) => {
        this.msg = error.message
       });
-    }
+    },
   },
   computed: {
     user() {
@@ -94,9 +92,3 @@ export default {
 }
 </script>
 
-<script setup>
-import { useDark, useToggle } from '@vueuse/core';
-
-const isDark = useDark();
-const toggleDark = useToggle(isDark);
-</script>

@@ -1,7 +1,8 @@
 <template>
 <div
-  class="flex flex-col h-screen dark:bg-[#293439] dark:text-slate-200">
-  <div class="flex flex-col flex-1">      
+  class="flex flex-col h-screen  dark:text-slate-200">
+  <div class="flex flex-col flex-1 dark:bg-[#293439]"
+  :class="dark ? 'dark' : 'light'">      
     <HeaderGlobal v-if="user.loggedIn" />
     <router-view  />
   </div>
@@ -12,7 +13,7 @@
 <script>
 import HeaderGlobal from '@/components/HeaderGlobal.vue'
 import TaskItems from '@/components/TaskItems.vue'
-import { useStore} from "vuex";
+import { useStore } from "vuex";
 import {computed} from "vue";
 import { auth } from '@/firebaseConfig'
 
@@ -22,8 +23,8 @@ export default {
     HeaderGlobal,
     TaskItems,
   },
-   setup() {
 
+   setup() {
   const store = useStore()
 
   auth.onAuthStateChanged(user => {
@@ -34,9 +35,14 @@ export default {
     return store.getters['firebase/user'];
   });
     return {user}
+    
  },
+
+
+ 
 }
 </script>
+
 
 <!-- Huisstijl Kleuren  -->
 
@@ -109,7 +115,13 @@ export default {
   }
 
   body{
-    @apply text-[#293439] bg-slate-200;
+    @apply text-[#293439] bg-slate-200 dark:text-slate-200 dark:bg-[#293439];
   }
+
+  .display-none{
+    @apply hidden;
+  }
+
+
 }
 </style>  

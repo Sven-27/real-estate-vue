@@ -1,12 +1,13 @@
 {
   "inspections": [
     {
-      "id": 1,
+      "id": 6487,
       "name": "Duplex woning",
       "address": "Leeuwerikstraat 1",
       "zipcode": "1234 AB",
       "city": "Amsterdam",
       "date": "2023-04-07",
+      "completed": false,
       "surveyOfDamage": {
           "location": "Dak",
           "newDamage": "ja",
@@ -38,12 +39,13 @@
         }
       },
     {
-      "id": 2,
+      "id": 6488,
       "name": "Rijtjes woning",
       "address": "RembrandtStraat 28",
       "zipcode": "5378 GH",
       "city": "Utrecht",
       "date": "2022-10-23",
+      "completed": false,
       "surveyOfDamage": {
           "location": "Woonkamer",
           "newDamage": "nee",
@@ -75,12 +77,13 @@
         }
       },
       {
-      "id": 3,
+      "id": 6489,
       "name": "Flat",
       "address": "Kerkstraat 1",
       "zipcode": "8724 DC",
       "city": "Leeuwarden",
       "date": "2023-03-01",
+      "completed": false,
       "surveyOfDamage": {
           "location": "Woonkamer",
           "newDamage": "ja",
@@ -112,12 +115,13 @@
         }
       },
       {
-      "id": 4,
+      "id": 6490,
       "name": "Flat",
       "address": "Kerkstraat 34",
       "zipcode": "8724 DC",
       "city": "Leeuwarden",
       "date": "2023-01-22",
+      "completed": false,
       "surveyOfDamage": {
           "location": "Garage",
           "newDamage": "ja",
@@ -149,12 +153,13 @@
         }
       },
       {
-      "id": 5,
+      "id": 6491,
       "name": "Bungalow",
       "address": "Chopinlaan 22",
       "zipcode": "2365 KK",
       "city": "Maastricht",
       "date": "2022-11-11",
+      "completed": false,
       "surveyOfDamage": {
           "location": "Gang",
           "newDamage": "ja",

@@ -1,9 +1,11 @@
 export class Inspections {
-   id = null;
-   name = "";
-   address = "";
+    id = null;
+    name = "";
+    address = "";
+    zipcode = "";
     city = "";
     date = "";
+    completed = false;
     surveyOfDamage = new SurveyOfDamage();
     overdueMaintenance = new OverdueMaintenance();
     technicalInstallation = new TechnicalInstallation();
@@ -13,6 +15,7 @@ export class Inspections {
     this.id = item.id;
     this.name = item.name;
     this.address = item.address;
+    this.zipcode = item.zipcode;
     this.city = item.city;
     this.date = item.date;
     if(item.surveyOfDamage) {

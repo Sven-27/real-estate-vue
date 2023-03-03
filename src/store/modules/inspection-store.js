@@ -23,7 +23,7 @@ export default {
     },
     filterInspections: (state) => (id) => {
       return state.inspects.filter(inspection => inspection.id === id) // Filtert de inspecties op de juiste id
-    }
+    },
   },
   mutations: {
     SET_INSPECTIONS(state, inspections) {

@@ -10,4 +10,8 @@ export default {
   eye: "bi-eye-fill",
   eyeSlash: "bi-eye-slash-fill",
   pencil: "bi-pencil-fill",
+  bookmarklet: "gi-bookmarklet",
+  sun: "bi-emoji-sunglasses-fill",
+  moon: "bi-moon-stars-fill",
+  click: "gi-click",
 }

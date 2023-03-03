@@ -1,6 +1,5 @@
 <template>
-<div>
-  <h3>See errors!</h3>
+<div class="text-red-500 flex justify-center">
   <div>{{  errorList }}</div>
 </div>
 </template>
