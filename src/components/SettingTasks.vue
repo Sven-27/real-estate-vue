@@ -1,5 +1,5 @@
 <template>
-<main class=" card m-2 md:m-5 grid place-self-center md:w-[600px] ">
+<main class="card m-2 md:m-5 grid place-self-center md:w-[600px] transition-ease">
   <section class="flex flex-col relative w-full justify-center items-center">
   <h1 class="text-xl md:text-4xl font-bold">Account gegevens</h1>
   <figure class="my-4 md:my-8">
@@ -29,14 +29,11 @@
   </section>
   <hr class="my-3 md:my-6">
   <section class="flex flex-col relative w-full">
-  <p class="font-semibold text-lg md:text-2xl flex items-center ">
-    Darkmode: <span class="pl-4"></span>
-  </p>
   <div class="grid place-items-center mb-4">
     <button 
       @click="deleteAccount"
       class="bg-[#00AAA2] text-white text-lg md:text-3xl 
-      py-2 px-8 rounded-md mt-4 md:mt-8 hover:bg-[#39b7b1]"
+      py-2 px-8 rounded-md mt-4 hover:bg-[#39b7b1]"
     >
       Delete account
     </button>
@@ -53,13 +50,9 @@ import icons from '@/data/icons'
 import { auth } from '@/firebaseConfig'
 import { deleteUser } from 'firebase/auth' 
 import { useRouter } from 'vue-router'
-// import ToggleDarkmode from '@/components/ToggleDarkmode.vue'
 
 export default {
   name: 'SettingTasks',
-  // components: {
-  //   ToggleDarkmode,
-  // },
   data() {
     return {
       icons,

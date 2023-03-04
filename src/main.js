@@ -24,7 +24,11 @@ import {
   BiPencilFill,
   BiMoonStarsFill,
   BiEmojiSunglassesFill,
-  GiClick
+  GiClick,
+  BiHouseDoorFill,
+  FaHouseDamage,
+  GiGreenPower,
+  BiTools,
 
 } from "oh-vue-icons/icons";
 
@@ -46,7 +50,11 @@ addIcons(
   BiPencilFill,
   BiMoonStarsFill,
   BiEmojiSunglassesFill,
-  GiClick
+  GiClick,
+  BiHouseDoorFill,
+  FaHouseDamage,
+  GiGreenPower,
+  BiTools,
 );
 
 createApp(App)

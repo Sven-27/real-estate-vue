@@ -45,6 +45,11 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
+    path: '/active/:id',
+    component: () => import('@/components/ActiveInspection.vue'), // lazy-loaded
+    meta: { requiresAuth: true }
+  },
+  {
     path: '/scheduled',
     name: 'scheduled',
     component: ScheduledTasks,

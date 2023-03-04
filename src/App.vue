@@ -70,7 +70,7 @@ export default {
     @apply text-[#fff] w-[1.8rem] h-[1.8rem] md:w-[3rem] md:h-[3rem] pr-[.4rem] py-1;
   }
   .task-container{
-    @apply w-32 flex flex-col justify-center items-center text-[.8rem] md:text-[1.3rem] text-[#fff] rounded-md px-3 hover:bg-[#4dcbc4];
+    @apply w-32 flex flex-col justify-center items-center text-[.8rem] md:text-[1.3rem] text-[#fff] rounded-md px-3 hover:bg-[#4dcbc4] transition-ease;
   }
   .oh-vue-card {
     @apply text-[#293439] dark:text-slate-200 w-[6rem] h-[6rem] pr-[.4rem] py-1 md:w-[9rem] md:h-[9rem];
@@ -80,6 +80,12 @@ export default {
   }
   .login-input{
     @apply outline-none shadow shadow-[#475E6C] rounded-sm text-[#293439] md:text-2xl mt-1 md:mt-3 py-1 px-2 mb-4;
+  }
+  .static-list{
+    @apply text-sm md:text-2xl mb-2 flex items-center;
+  }
+  .static-list-icons{
+    @apply w-[1.1rem] h-[1.1rem] md:w-[1.7rem] md:h-[1.7rem] mr-2
   }
 }
 
@@ -107,11 +113,14 @@ export default {
   .card:hover {
     background-color: #ffffff55;
   }
+  .transition-ease{
+    @apply transition ease-in-out duration-200;
+  }
 }
 
 @layer utilities{
   *{
-    @apply m-0 p-0 box-border transition-all duration-200 ease-in-out;
+    @apply m-0 p-0 box-border ;
   }
 
   body{
@@ -121,7 +130,5 @@ export default {
   .display-none{
     @apply hidden;
   }
-
-
 }
 </style>  

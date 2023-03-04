@@ -14,4 +14,8 @@ export default {
   sun: "bi-emoji-sunglasses-fill",
   moon: "bi-moon-stars-fill",
   click: "gi-click",
+  house: "bi-house-door-fill",
+  damage: "fa-house-damage",
+  power: "gi-green-power",
+  tools: "bi-tools",
 }

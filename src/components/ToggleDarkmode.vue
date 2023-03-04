@@ -2,7 +2,10 @@
 <button type="button" @click="themeSwitch">
 <v-icon 
     :name="showIcon ? icons.sun : icons.moon" 
-    class="w-10 h-10 text-yellow-500" 
+    class=" text-[#ddd] w-[1.3rem] h-[1.3rem] 
+        md:w-[2.5rem] md:h-[2.5rem] md:ml-3 mr-3 md:mr-7
+        hover:text-[#ffffff88] transition-ease" 
+    :class="showIcon ? 'text-yellow-200' : 'text-[#ddd]'"
   />
   </button>
 </template>
@@ -20,10 +23,12 @@ export default {
     const userTheme = localStorage.getItem('theme');
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const showIcon = ref(false)
+
   // Initial Theme check
     const themeCheck = () => {
       if(userTheme === "dark" || (!userTheme && systemTheme)) {
         document.body.classList.add("dark");    
+        showIcon.value = true;
         return;
       }
     }

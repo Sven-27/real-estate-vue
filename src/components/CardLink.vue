@@ -4,7 +4,7 @@
   v-for="(card) in cards.cards"
   :key="card.id"
   :to="card.link"
-  class="card grid place-items-center" 
+  class="card grid place-items-center transition-ease" 
 >
 <v-icon 
   :name="card.logo" 
