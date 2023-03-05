@@ -9,7 +9,7 @@ export default {
   computed: {
     errorList() {
       return this.$store.state.inspectionData.errorList
-    }
+    },
   }
 }
 </script>

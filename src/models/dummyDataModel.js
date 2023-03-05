@@ -1,4 +1,5 @@
 export class Inspections {
+    idType = "";
     id = null;
     name = "";
     address = "";
@@ -12,12 +13,14 @@ export class Inspections {
     modifications = new Modifications();
 
   constructor(item) { 
+    this.idType = item.idType;
     this.id = item.id;
     this.name = item.name;
     this.address = item.address;
     this.zipcode = item.zipcode;
     this.city = item.city;
     this.date = item.date;
+    this.completed = item.completed;
     if(item.surveyOfDamage) {
       this.surveyOfDamage = new SurveyOfDamage(item.surveyOfDamage);
     }

@@ -140,7 +140,6 @@
     </div>
   </article>
   <LoadingStatus
-    className="flex justify-center items-center"
     v-if="loading"
   />
   <Errors v-if="error" />

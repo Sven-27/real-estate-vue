@@ -70,7 +70,7 @@ export default {
     @apply text-[#fff] w-[1.8rem] h-[1.8rem] md:w-[3rem] md:h-[3rem] pr-[.4rem] py-1;
   }
   .task-container{
-    @apply w-32 flex flex-col justify-center items-center text-[.8rem] md:text-[1.3rem] text-[#fff] rounded-md px-3 hover:bg-[#4dcbc4] transition-ease;
+    @apply w-32 md:w-36 flex flex-col uppercase justify-center items-center text-[.6rem] md:text-[1.1rem] text-[#fff] rounded-md px-3 hover:bg-[#4dcbc4] transition-ease;
   }
   .oh-vue-card {
     @apply text-[#293439] dark:text-slate-200 w-[6rem] h-[6rem] pr-[.4rem] py-1 md:w-[9rem] md:h-[9rem];

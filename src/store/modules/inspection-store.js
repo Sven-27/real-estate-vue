@@ -10,7 +10,6 @@ export default {
     inspects: [],
     loading: false,
     errors: [],
-
   },
   getters: {
     sortInspections: state => {
@@ -18,8 +17,8 @@ export default {
         return a.date.localeCompare(b.date)
       })
     },
-     findInspections: (state) => (id) => {
-      return state.inspects.find(inspection => inspection.id === id) // Vind de juiste id van de inspectie
+    findInspections: (state) => (id) => {
+    return state.inspects.find(inspection => inspection.id === id) // Vind de juiste id van de inspectie
     },
     filterInspections: (state) => (id) => {
       return state.inspects.filter(inspection => inspection.id === id) // Filtert de inspecties op de juiste id

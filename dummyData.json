@@ -1,7 +1,8 @@
 {
   "inspections": [
     {
-      "id": 6487,
+      "idType": "#IS",
+      "id": 2006487,
       "name": "Duplex woning",
       "address": "Leeuwerikstraat 1",
       "zipcode": "1234 AB",
@@ -39,7 +40,8 @@
         }
       },
     {
-      "id": 6488,
+      "idType": "#IS",
+      "id": 2006488,
       "name": "Rijtjes woning",
       "address": "RembrandtStraat 28",
       "zipcode": "5378 GH",
@@ -77,14 +79,15 @@
         }
       },
       {
-      "id": 6489,
-      "name": "Flat",
-      "address": "Kerkstraat 1",
-      "zipcode": "8724 DC",
-      "city": "Leeuwarden",
-      "date": "2023-03-01",
-      "completed": false,
-      "surveyOfDamage": {
+        "idType": "#IS",
+        "id": 2006489,
+        "name": "Flat",
+        "address": "Kerkstraat 1",
+        "zipcode": "8724 DC",
+        "city": "Leeuwarden",
+        "date": "2023-03-01",
+        "completed": false,
+        "surveyOfDamage": {
           "location": "Woonkamer",
           "newDamage": "ja",
           "typeOfDamage": "Normaal gebruik",
@@ -115,14 +118,15 @@
         }
       },
       {
-      "id": 6490,
-      "name": "Flat",
-      "address": "Kerkstraat 34",
-      "zipcode": "8724 DC",
-      "city": "Leeuwarden",
-      "date": "2023-01-22",
-      "completed": false,
-      "surveyOfDamage": {
+        "idType": "#IS",
+        "id": 2006490,
+        "name": "Flat",
+        "address": "Kerkstraat 34",
+        "zipcode": "8724 DC",
+        "city": "Leeuwarden",
+        "date": "2023-01-22",
+        "completed": false,
+        "surveyOfDamage": {
           "location": "Garage",
           "newDamage": "ja",
           "typeOfDamage": "geweld",
@@ -153,14 +157,15 @@
         }
       },
       {
-      "id": 6491,
-      "name": "Bungalow",
-      "address": "Chopinlaan 22",
-      "zipcode": "2365 KK",
-      "city": "Maastricht",
-      "date": "2022-11-11",
-      "completed": false,
-      "surveyOfDamage": {
+        "idType": "#IS",
+        "id": 2006491,
+        "name": "Bungalow",
+        "address": "Chopinlaan 22",
+        "zipcode": "2365 KK",
+        "city": "Maastricht",
+        "date": "2022-11-11",
+        "completed": false,
+        "surveyOfDamage": {
           "location": "Gang",
           "newDamage": "ja",
           "typeOfDamage": "calamiteit",

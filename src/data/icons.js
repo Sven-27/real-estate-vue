@@ -18,4 +18,5 @@ export default {
   damage: "fa-house-damage",
   power: "gi-green-power",
   tools: "bi-tools",
+  arrowDown: "md-keyboardarrowdown",
 }

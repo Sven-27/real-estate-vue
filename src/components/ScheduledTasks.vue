@@ -71,7 +71,7 @@
           </p>
         </div>
         <div>
-          <p>ID Nummer: #<span>{{ inspection.id }}</span></p>
+          <p>ID Nummer: <span>{{inspection.idType}}{{ inspection.id }}</span></p>
           <ul class="list-none py-4 border-b-[1px] mb-3">
             <li class="static-list">
               <v-icon 
@@ -128,23 +128,14 @@
   v-if="loading"
 />
 <Errors v-if="error" />
-<router-link to="/">
-  <div class="grid place-items-center mb-4">
-    <button 
-      type="button"
-      class="bg-[#00AAA2] text-white text-md md:text-2xl 
-      py-2 px-8 rounded-md mt-4 hover:bg-[#39b7b1]"
-    >
-      Go to Dashboard
-    </button>
-  </div>
-</router-link>
+<BackButton />
 </template>
 
 <script>
 import LoadingStatus from '@/components/LoadingStatus.vue'
 import Errors from '@/components/ErrorList.vue'
 import icons from '@/data/icons.js'
+import BackButton from '@/components/BackButton.vue'
 
 export default {
   name: 'ScheduledTasks',
@@ -155,7 +146,8 @@ export default {
   },
   components: {
     LoadingStatus,
-    Errors
+    Errors,
+    BackButton
   },
   computed: {
     sorted() {
@@ -166,6 +158,9 @@ export default {
     },
     error() {
       return this.$store.state.inspectionData.errors.length > 0
+    },
+    isNotCompleted() {
+      return this.$store.getters === false
     },
     user() {
       const data = this.$store.getters['firebase/user']
