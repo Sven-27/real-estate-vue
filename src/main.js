@@ -29,7 +29,9 @@ import {
   FaHouseDamage,
   GiGreenPower,
   BiTools,
-  MdKeyboardarrowdown
+  MdKeyboardarrowdown,
+  HiSolidDocumentSearch,
+  FcDocument
 
 } from "oh-vue-icons/icons";
 
@@ -56,7 +58,9 @@ addIcons(
   FaHouseDamage,
   GiGreenPower,
   BiTools,
-  MdKeyboardarrowdown
+  MdKeyboardarrowdown,
+  HiSolidDocumentSearch,
+  FcDocument
 );
 
 createApp(App)

@@ -17,6 +17,7 @@ export default {
         return a.date.localeCompare(b.date)
       })
     },
+    
     findInspections: (state) => (id) => {
     return state.inspects.find(inspection => inspection.id === id) // Vind de juiste id van de inspectie
     },

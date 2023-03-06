@@ -30,6 +30,8 @@ export default {
         document.body.classList.add("dark");    
         showIcon.value = true;
         return;
+      }else{
+        showIcon.value = false;
       }
     }
 

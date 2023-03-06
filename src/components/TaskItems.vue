@@ -1,12 +1,16 @@
 <template>
 <div class="flex justify-between md:justify-center 
 w-full bg-[#00AAA2]  xl:py-0 px-8">
-  <div class="task-container">
+  <div 
+    class="task-container"
+
+  >
     <v-icon 
       :name="icons.wrench" 
       class="oh-vue-task" 
     />
     <p>active task</p>
+
   </div>
   <div 
     class="task-container">
@@ -37,6 +41,14 @@ export default {
     return {
       icons
     }
-  }
+  },
+  computed: {
+    sorted() {
+      return this.$store.getters['inspectionData/sortInspections'][0]
+    }
+  },
+  mounted() {
+    this.$store.dispatch('inspectionData/fetchInspections') // Haalt de inspecties op
+  },
 }
 </script>

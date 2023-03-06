@@ -2,6 +2,7 @@ export default {
   square: "bi-square-fill",
   circle: "bi-circle-fill",
   triangle: "bi-triangle-fill",
+  knowledgeBase: "io-apps",
   bell: "bi-bell-fill",
   gear: "bi-gear-fill",
   wrench: "bi-wrench", 
@@ -19,4 +20,6 @@ export default {
   power: "gi-green-power",
   tools: "bi-tools",
   arrowDown: "md-keyboardarrowdown",
+  documentSearch: "hi-solid-document-search",
+  document: "fc-document",
 }

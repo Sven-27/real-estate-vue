@@ -77,16 +77,16 @@
           </div>
           <div class="mt-5">
           <label for="action-maintenance">Vereiste actie:</label>
-              <select data-te-select-init
-                id="action-maintenance"
-                name="action-maintenance"
-                required
-                class="w-full h-full relative  border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent">
-                <option disabled>Selecteer</option>
-                    <option selected value="calamiteit">Acute actie</option>
-                    <option value="moedwillig">In later stadium</option>
-                  </select>
-              </div>
+            <select data-te-select-init
+              id="action-maintenance"
+              name="action-maintenance"
+              required
+              class="w-full h-full relative  border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent">
+              <option disabled>Selecteer</option>
+              <option selected value="calamiteit">Acute actie</option>
+              <option value="moedwillig">In later stadium</option>
+            </select>
+          </div>
           <div class="mt-5">
             <label for="costs-maintenance">Kosten Indicatie:</label>
             <select data-te-select-init
@@ -109,7 +109,6 @@
             <input
               class="relative mt-3 block w-full min-w-0 flex-auto cursor-pointer rounded border border-solid border-neutral-300 bg-white bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out file:-mx-3 file:-my-1.5 file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-1.5 file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[margin-inline-end:0.75rem] file:[border-inline-end-width:1px] hover:file:bg-neutral-200 focus:border-[#00AAA2] focus:bg-white focus:text-neutral-700 focus:shadow-[0_0_0_1px] focus:shadow-[#00AAA2] focus:outline-none dark:bg-transparent dark:text-neutral-200 dark:focus:bg-transparent"
               type="file"
-              required
               id="formFileMultiple-maintenance"
               name="formFileMultiple-maintenance"
               multiple />

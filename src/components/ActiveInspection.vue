@@ -56,6 +56,7 @@ import ModificationItems from '@/components/categoryForms/ModificationItems.vue'
 
 export default {
   name: 'ActiveInspection',
+  
   created() {
     this.id = +this.$route.params.id
   },

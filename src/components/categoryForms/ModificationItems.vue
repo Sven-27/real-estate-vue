@@ -50,51 +50,57 @@
       data-te-parent="#accordionExample">
       <div class="py-4 px-5">
         <form>
-          <div>
-            <label for="location">Locatie schade:</label>
-            <input
-              type="text"
-              id="location"
-              name="location"
-              class="w-full border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
-              placeholder="Waar de schade zich bevindt"
-              />
-          </div>
+        <ButtonToKnowledgebase>Bestaande documenten</ButtonToKnowledgebase> 
+        <div>
+          <label for="location-modification">Locatie van de aanpassing:</label>
+          <input
+            type="text"
+            id="location-modification"
+            required
+            name="location-modification"
+            class="w-full border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
+            placeholder="Locatie aanpassing"
+          />
+        </div>
           <div class="mt-5">
-            <label for="new-damage">Nieuwe of bestaande schade:</label>
+            <label for="executed-by-modification">Aanpassing uitgevoerd door:</label>
             <select data-te-select-init
-              id="new-damage"
+              id="executed-by-modification"
+              required
+              name="executed-by-modification"
               class="w-full h-full relative  border mt-3 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent">
-              <option disabled selected value="select">Selecteer</option>
-              <option value="nieuw">Nieuwe schade</option>
-              <option value="bestaand">Bestaande schade</option>
+              <option disabled>Selecteer</option>
+              <option selected value="tenant">Huurder</option>
+              <option value="landlord">Verhuurder</option>
+              <option value="unknown">Onbekend</option>
             </select>
           </div>
           <div class="mt-5">
-          <label for="new-damage">Soort schade:</label>
-              <select data-te-select-init
-                class="w-full h-full relative  border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent">
-                <option disabled selected value="select">Selecteer</option>
-                    <option value="calamiteit">Calamiteit</option>
-                    <option value="moedwillig">Moedwillig</option>
-                    <option value="slijtage">Slijtage</option>
-                    <option value="geweld">Geweld</option>
-                    <option value="normaal">Normaal gebruik</option>
-                    <option value="anders">Anders</option>
-                  </select>
-              </div>
+            <label for="description-modifications">Omschrijving van de aanpassingen:</label>
+            <textarea
+              id="description-modifications"
+              required
+              name="description-modifications"
+              class="w-full h-48 border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
+              placeholder="Omschrijf de aanpassingen zo duidelijk mogelijk"
+            ></textarea>
+          </div>
           <div class="mt-5">
-            <label for="actie">Actie:</label>
+          <label for="action-modification">Te ondernemen actie:</label>
             <select data-te-select-init
-              id="action"
-              class="w-full h-full relative  border mt-3 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent">
-              <option disabled selected value="select">Selecteer</option>
-              <option value="direct">Direct actie ondernemen</option>
-              <option value="wait">Kan nog wachten</option>
+              id="action-modification"
+              required
+              name="action-modification"
+              class="w-full h-full relative  border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent">
+              <option disabled>Selecteer</option>
+              <option selected value="accept">Accepteren</option>
+              <option value="approve">Laten keuren</option>
+              <option value="remove">Laten verwijderen</option>
+              <option value="modify">Laten aanpassen en keuren</option>
             </select>
           </div>
           <div class="flex justify-center">
-          <div class="mb-3 w-full">
+          <div class="mb-3 mt-5 w-full">
             <label
               for="formFileMultiple"
               class="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
@@ -107,19 +113,6 @@
               multiple />
           </div>
         </div>
-          <!-- <div class="flex flex-1 w-full"> -->
-          <!-- <div class="my-5">
-            <label 
-              for="damage"
-            >Nieuwe of bestaande schade:</label>
-            <select 
-            >
-              <option disabled value="0">Selecteer</option>
-              <option value="1">Nieuwe schade</option>
-              <option value="2">Bestaande schade</option>
-            </select>
-          </div> -->
-        <!-- </div> -->
         </form>
       </div>
     </div>
@@ -128,6 +121,8 @@
 </template>
 <script>
 import icons from '@/data/icons'
+import ButtonToKnowledgebase from '@/components/ButtonToKnowledgebase.vue'
+
 export default {
   name: 'ModificationItems',
   props: ['address', 'id'],
@@ -136,5 +131,8 @@ export default {
       icons
     }
   },
+  components: {
+    ButtonToKnowledgebase
+  }
 }
 </script>

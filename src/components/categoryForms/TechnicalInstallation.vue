@@ -44,7 +44,7 @@
     </h2>
     <div
       id="collapseThree"
-      class="!visible "
+      class="!visible hidden"
       data-te-collapse-item
       aria-labelledby="headingThree"
       data-te-parent="#accordionExample">
@@ -62,59 +62,54 @@
               />
           </div>
           <div class="mt-5">
-            <label for="new-damage">Nieuwe of bestaande schade:</label>
+            <label for="type-of-installation">Soort Installatie:</label>
             <select data-te-select-init
-              id="new-damage"
+              id="type-of-installation"
+              name="type-of-installation"
+              required
               class="w-full h-full relative  border mt-3 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent">
-              <option disabled selected value="select">Selecteer</option>
-              <option value="nieuw">Nieuwe schade</option>
-              <option value="bestaand">Bestaande schade</option>
+              <option disabled>Selecteer</option>
+              <option selected value="elektra">Elektra</option>
+              <option value="heating">Verwarming</option>
+              <option value="Security">Beveiliging</option>
+              <option value="airco">Airco</option>
             </select>
           </div>
           <div class="mt-5">
-          <label for="new-damage">Soort schade:</label>
-              <select data-te-select-init
-                class="w-full h-full relative  border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent">
-                <option disabled selected value="select">Selecteer</option>
-                    <option value="calamiteit">Calamiteit</option>
-                    <option value="moedwillig">Moedwillig</option>
-                    <option value="slijtage">Slijtage</option>
-                    <option value="geweld">Geweld</option>
-                    <option value="normaal">Normaal gebruik</option>
-                    <option value="anders">Anders</option>
-                  </select>
-              </div>
-          <div class="mt-5">
-            <label for="date">Datum schade:</label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              class="w-full border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
-              placeholder="Wanneer is de schade ontstaan"
-              />
-          </div>
-          <div class="mt-5">
-            <label for="actie">Actie:</label>
-            <select data-te-select-init
-              id="action"
-              class="w-full h-full relative  border mt-3 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent">
-              <option disabled selected value="select">Selecteer</option>
-              <option value="direct">Direct actie ondernemen</option>
-              <option value="wait">Kan nog wachten</option>
-            </select>
-          </div>
-          <div class="mt-5">
-            <label for="description">Omschrijving van de schade:</label>
+            <label for="description-installation-nofunction">Omschrijving van de storing:</label>
             <textarea
-              id="description"
-              name="description"
+              id="description-installation-nofunction"
+              required
+              name="description-installation-nofunction"
               class="w-full h-48 border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
-              placeholder="Omschrijf de schade"
+              placeholder="Omschrijf de storing zo duidelijk mogelijk"
+            ></textarea>
+          </div>
+          <ButtonToKnowledgebase>Testprocedures</ButtonToKnowledgebase>
+          <div class="mt-5">
+          <label for="test-result-installation">Testresultaat:</label>
+            <select data-te-select-init
+              id="test-result-installation"
+              required
+              name="test-result-installation"
+              class="w-full h-full relative  border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent">
+              <option disabled>Selecteer</option>
+              <option selected value="approved">Goedgekeurd</option>
+              <option value="denied">Afgekeurd</option>
+            </select>
+          </div>
+          <div class="mt-5">
+            <label for="description-installation-remarks">Opmerkingen over installatie:</label>
+            <textarea
+              id="description-installation-remarks"
+              required
+              name="description-installation-remarks"
+              class="w-full h-48 border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
+              placeholder="Oprmerkingen over de installatie"
               ></textarea>
           </div>
           <div class="flex justify-center">
-          <div class="mb-3 w-full">
+          <div class="mb-3 mt-5 w-full">
             <label
               for="formFileMultiple"
               class="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
@@ -135,6 +130,8 @@
 </template>
 <script>
 import icons from '@/data/icons'
+import ButtonToKnowledgebase from '@/components/ButtonToKnowledgebase.vue'
+
 export default {
   name: 'TechnicalInstallation',
   props: ['address', 'id'],
@@ -142,6 +139,9 @@ export default {
     return {
       icons
     }
+  },
+  components: {
+    ButtonToKnowledgebase
   },
 }
 </script>
