@@ -56,6 +56,7 @@
               type="text"
               id="location-damage"
               name="location-damage"
+              :value="locationDamage"
               class="w-full border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
               placeholder="Waar de schade zich bevindt"
               required
@@ -96,6 +97,7 @@
               id="date-damage"
               required
               name="date-damage"
+              :value="dateDamage"
               class="w-full border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
               placeholder="Wanneer is de schade ontstaan"
               />
@@ -118,6 +120,7 @@
               id="description-damage"
               required
               name="description-damage"
+              :value="descriptionDamage"
               class="w-full h-48 border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
               placeholder="Omschrijf de schade"
               ></textarea>
@@ -147,7 +150,11 @@
 import icons from '@/data/icons.js'
 export default {
   name: 'SurveyOfDamage',
-  props: ['address', 'id'],
+  props: [
+    'locationDamage',
+    'dateDamage',
+    'descriptionDamage',
+  ],
   data () {
     return {
       icons

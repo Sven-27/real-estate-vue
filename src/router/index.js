@@ -10,6 +10,7 @@ import SettingTasks from '@/components/SettingTasks.vue'
 import LoginPage from '@/components/LoginPage.vue'
 import RegisterPage from '@/components/RegisterPage.vue'
 import ResetPassword from '@/components/ResetPassword.vue'
+import SearchInspections from '@/components/SearchInspections.vue'
 
 const routes = [
   {
@@ -71,6 +72,12 @@ const routes = [
     path: '/settings',
     name: 'settings',
     component: SettingTasks,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: SearchInspections,
     meta: { requiresAuth: true }
   },
 ]

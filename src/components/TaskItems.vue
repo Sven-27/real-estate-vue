@@ -1,25 +1,26 @@
 <template>
 <div class="flex justify-between md:justify-center 
 w-full bg-[#00AAA2]  xl:py-0 px-8">
-  <div 
+  <router-link 
     class="task-container"
-
+    :to="'/active/' + id"
   >
     <v-icon 
       :name="icons.wrench" 
       class="oh-vue-task" 
     />
     <p>active task</p>
-
-  </div>
-  <div 
-    class="task-container">
+  </router-link>
+  <router-link
+    to="/search"
+    class="task-container"
+  >
     <v-icon 
       :name="icons.search" 
       class="oh-vue-task" 
     />
     <p>search</p>
-  </div>
+  </router-link>
   <router-link 
     class="task-container" 
     to="/inspection"
@@ -39,13 +40,13 @@ export default {
   name: 'TaskItems',
   data() {
     return {
-      icons
+      icons,
+      id: 2006487
     }
   },
   computed: {
-    sorted() {
-      return this.$store.getters['inspectionData/sortInspections'][0]
-    }
+    find() {
+      return this.$store.getters['inspectionData/findInspections'](this.id)    }
   },
   mounted() {
     this.$store.dispatch('inspectionData/fetchInspections') // Haalt de inspecties op

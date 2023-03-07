@@ -55,6 +55,7 @@
             <input
               type="text"
               id="location-installation"
+              :value="locationInstallation"
               required
               name="location-installation"
               class="w-full border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
@@ -80,6 +81,7 @@
             <textarea
               id="description-installation-nofunction"
               required
+              :value="descriptionInstallation"
               name="description-installation-nofunction"
               class="w-full h-48 border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
               placeholder="Omschrijf de storing zo duidelijk mogelijk"
@@ -103,6 +105,7 @@
             <textarea
               id="description-installation-remarks"
               required
+              :value="descriptionInstallationRemarks"
               name="description-installation-remarks"
               class="w-full h-48 border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
               placeholder="Oprmerkingen over de installatie"
@@ -134,7 +137,11 @@ import ButtonToKnowledgebase from '@/components/ButtonToKnowledgebase.vue'
 
 export default {
   name: 'TechnicalInstallation',
-  props: ['address', 'id'],
+  props: [
+    'locationInstallation',
+    'descriptionInstallation',
+    'descriptionInstallationRemarks'
+  ],
   data () {
     return {
       icons

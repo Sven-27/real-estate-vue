@@ -3,6 +3,7 @@ export default {
   circle: "bi-circle-fill",
   triangle: "bi-triangle-fill",
   knowledgeBase: "io-apps",
+  completed: "bi-check-circle-fill",
   bell: "bi-bell-fill",
   gear: "bi-gear-fill",
   wrench: "bi-wrench", 

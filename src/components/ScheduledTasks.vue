@@ -132,9 +132,9 @@
 </template>
 
 <script>
+import icons from '@/data/icons.js'
 import LoadingStatus from '@/components/LoadingStatus.vue'
 import Errors from '@/components/ErrorList.vue'
-import icons from '@/data/icons.js'
 import BackButton from '@/components/BackButton.vue'
 
 export default {

@@ -56,6 +56,7 @@
           <input
             type="text"
             id="location-modification"
+            :value="locationModification"
             required
             name="location-modification"
             class="w-full border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
@@ -80,6 +81,7 @@
             <textarea
               id="description-modifications"
               required
+              :value="descriptionModifications"
               name="description-modifications"
               class="w-full h-48 border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
               placeholder="Omschrijf de aanpassingen zo duidelijk mogelijk"
@@ -125,7 +127,10 @@ import ButtonToKnowledgebase from '@/components/ButtonToKnowledgebase.vue'
 
 export default {
   name: 'ModificationItems',
-  props: ['address', 'id'],
+  props: [
+    'descriptionModifications',
+    'locationModification'
+  ],
   data () {
     return {
       icons

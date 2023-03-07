@@ -6,9 +6,6 @@
   />
   <span class="text-xl md:text-4xl font-semibold">Active Task</span>
 </div>
-<!-- <div
-  class=" m-3 max-w-sm rounded-lg bg-white py-2 shadow-lg 
-  dark:bg-neutral-700"> -->
   <div
     class="flex card  md:mt-2 flex-col text-sm md:text-2xl px-3
     md:w-[70%] xl:w-[50%] w-full mx-auto" 
@@ -34,12 +31,38 @@
       <span>{{ user }}</span>
     </p>
   </div>
-  <SurveyOfDamage :address="inspection.address" :id="inspection.id" />
-  <OverdueMaintenance :address="inspection.address" :id="inspection.id" />
-  <TechnicalInstallation :address="inspection.address" :id="inspection.id" />
-  <ModificationItems :address="inspection.address" :id="inspection.id" />
+  <SurveyOfDamage 
+    :locationDamage="inspection.surveyOfDamage.location" 
+    :dateDamage="inspection.surveyOfDamage.date"
+    :descriptionDamage="inspection.surveyOfDamage.description"
+  />
+  <OverdueMaintenance 
+    :locationOverdue="inspection.overdueMaintenance.location"
+   />
+  <TechnicalInstallation 
+    :locationInstallation="inspection.technicalInstallation.location"
+    :descriptionInstallation="inspection.technicalInstallation.reportedFailures"
+    :descriptionInstallationRemarks="inspection.technicalInstallation.comments"
+  />
+  <ModificationItems 
+    :descriptionModifications="inspection.modifications.description"
+    :locationModification="inspection.modifications.location"
+   />
+
+    <div class="grid place-items-center mb-4">
+      <button 
+        type="button"
+        class="bg-[#00AAA2] flex items-center text-white text-md md:text-xl 
+          py-2 px-3 rounded-md mt-4 hover:bg-[#39b7b1]"
+      >
+        <v-icon 
+          :name="icons.completed" 
+          class="mr-1 w-4 h-4 md:w-6 md:h-6" 
+        />
+        Formulier voltooid
+      </button>
+    </div>
   </div>
-<!-- </div> -->
 <BackButton />
 <LoadingStatus v-if="loading" />
 <Errors v-if="error" />

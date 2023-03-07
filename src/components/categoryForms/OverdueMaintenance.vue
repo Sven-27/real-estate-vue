@@ -55,6 +55,7 @@
             <input
               type="text"
               id="location-overdue"
+              :value="locationOverdue"
               required
               name="location-overdue"
               class="w-full border mt-2 border-neutral-200 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white rounded-md py-2 px-3 text-sm md:text-2xl text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#00AAA2] focus:border-transparent"
@@ -124,11 +125,13 @@
 import icons from '@/data/icons'
 export default {
   name: 'OverdueMaintenance',
-  props: ['address', 'id'],
+  props: [
+    'locationOverdue'
+  ],
   data () {
     return {
       icons
     }
-  }
+  },
 }
 </script>
