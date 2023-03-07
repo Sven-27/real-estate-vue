@@ -57,7 +57,7 @@
     </h2>
     <div
       :id="'collapse' + inspection.id"
-      class="!visible hidden border-0"
+      class="!visible border-0"
       data-te-collapse-item
       :aria-labelledby="'heading' + inspection.id"
       data-te-parent="#accordionExample">
@@ -72,36 +72,69 @@
         </div>
         <div>
           <p>ID Nummer: <span>{{inspection.idType}}{{ inspection.id }}</span></p>
-          <ul class="list-none py-4 border-b-[1px] mb-3">
-            <li class="static-list">
+          <section class="list-none py-4 border-b-[1px] mb-3">
+            <h2 class="static-list text-header-color">
               <v-icon 
                 :name="icons.house" 
                 class="static-list-icons" 
               />
               Inventarisatie van schade
-            </li>
-            <li class="static-list">
+            </h2>
+            <p class="paragraph-completed">
+              <span>Locatie schade:</span>
+              {{ inspection.surveyOfDamage.location }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Nieuwe of bestaande schade:</span>
+              {{ inspection.surveyOfDamage.newDamage }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Soort schade:</span>
+              {{ inspection.surveyOfDamage.typeOfDamage }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Datum schade:</span>
+              {{ inspection.surveyOfDamage.date }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Actie:</span>
+              {{ inspection.surveyOfDamage.requiredAction }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Omschrijving schade:</span>
+              {{ inspection.surveyOfDamage.description }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Foto's schade:</span>
+              <img 
+                :src="getPhotos('huis-een.jpeg')"
+                class="w-20 h-20 object-cover"
+              />
+            </p>
+          </section>
+            <li class="static-list text-header-color">
               <v-icon 
                 :name="icons.damage" 
                 class="static-list-icons" 
               />
               Achterstallig onderhoud
             </li>
-            <li class="static-list">
+            <li class="static-list text-header-color">
               <v-icon 
                 :name="icons.power" 
                 class="static-list-icons" 
               />
               Technische installaties
             </li>
-            <li class="static-list">
+            <section>
+            <h3 class="static-list text-header-color">
               <v-icon 
                 :name="icons.tools" 
                 class="static-list-icons" 
               />
               Aanpassingen
-            </li>
-          </ul>
+            </h3>
+          </section>
         </div>
         <router-link 
           :to="'/active/' + inspection.id">
@@ -132,13 +165,15 @@
 </template>
 
 <script>
-import icons from '@/data/icons.js'
+import icons from '@/data/icons'
+import mixin from '@/mixins/mixins'
 import LoadingStatus from '@/components/LoadingStatus.vue'
 import Errors from '@/components/ErrorList.vue'
 import BackButton from '@/components/BackButton.vue'
 
 export default {
   name: 'CompletedTasks',
+  mixins: [mixin],
   data() {
     return {
       icons

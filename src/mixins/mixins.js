@@ -5,6 +5,9 @@ export default {
     getImgUrl(img) {
       // console.log('getImgUrl() wordt aangeroepen vanuit mixins.js'); 
       return require('@/assets/logos/' + img )
+    },
+    getPhotos(photo) {
+      return require('@/assets/images/' + photo )
     }
   }
 }

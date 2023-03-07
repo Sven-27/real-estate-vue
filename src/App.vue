@@ -85,7 +85,13 @@ export default {
     @apply text-sm md:text-2xl mb-2 flex items-center;
   }
   .static-list-icons{
-    @apply w-[1.1rem] h-[1.1rem] md:w-[1.7rem] md:h-[1.7rem] mr-2
+    @apply w-[1.1rem] h-[1.1rem] md:w-[1.7rem] md:h-[1.7rem] mr-2 
+  }
+  .text-header-color{
+    @apply text-[#00AAA2]
+  }
+  .paragraph-completed{
+    @apply flex flex-col my-2 pb-2 border-b-[1px] border-[#ddd] dark:border-[#444] 
   }
 }
 
