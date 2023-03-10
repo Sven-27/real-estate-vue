@@ -7,9 +7,10 @@ export default {
   namespaced: true,
 
   state: {
-    inspects: [],
+    inspects: [], 
     loading: false,
     errors: [],
+    complete: null,
   },
   getters: {
     sortInspections: state => {
@@ -17,9 +18,18 @@ export default {
         return a.date.localeCompare(b.date)
       })
     },
-    
+    getComplete: state => {
+      const data = localStorage.getItem('test')
+      state.complete = JSON.parse(data) || []
+      state.complete.push(data)
+      localStorage.setItem('array', JSON.stringify(state.complete))
+      return state.complete
+    },
+    getInspections: state => {
+      return state.inspects
+    },
     findInspections: (state) => (id) => {
-    return state.inspects.find(inspection => inspection.id === id) // Vind de juiste id van de inspectie
+      return state.inspects.find(inspection => inspection.id === id) // Vind de juiste id van de inspectie
     },
     filterInspections: (state) => (id) => {
       return state.inspects.filter(inspection => inspection.id === id) // Filtert de inspecties op de juiste id
@@ -27,8 +37,8 @@ export default {
   },
   mutations: {
     SET_INSPECTIONS(state, inspections) {
-      state.inspects = inspections
       console.log(state.inspects)
+      state.inspects = inspections
     },
     SET_LOADING(state, loading) {
       state.loading = loading
@@ -44,7 +54,6 @@ export default {
         .then(response => {
           commit('SET_LOADING', false)
           commit('SET_INSPECTIONS', response.data.map(item => new Inspections(item)))
-          console.log(response.data)
         })
         .catch(error => {
           commit('SET_ERRORS', error)

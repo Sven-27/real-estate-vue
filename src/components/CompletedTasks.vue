@@ -7,12 +7,12 @@
   <span class="text-xl md:text-4xl font-semibold">Inspectie(s) afgehandeld</span>
 </div>
 <div id="accordionFlushExample"
-  class="md:w-[70%] xl:w-[50%] w-full mx-auto"
+  class=" md:w-[80%] xl:w-[50%] w-full mx-auto"
 >
   <div
     class="rounded-none m-5 border border-t-0 border-l-0 border-r-0 border-neutral-200 
     bg-white dark:border-neutral-600 dark:bg-neutral-800 "
-    v-for="inspection in sorted"
+    v-for="inspection in isCompleted"
     :key="inspection.id"
   >
     <h2 class="mb-0" id="heading">
@@ -57,7 +57,7 @@
     </h2>
     <div
       :id="'collapse' + inspection.id"
-      class="!visible border-0"
+      class="!visible hidden border-0"
       data-te-collapse-item
       :aria-labelledby="'heading' + inspection.id"
       data-te-parent="#accordionExample">
@@ -104,36 +104,153 @@
               <span>Omschrijving schade:</span>
               {{ inspection.surveyOfDamage.description }}
             </p>
-            <p class="paragraph-completed">
+            <p class="paragraph-completed border-none">
               <span>Foto's schade:</span>
+              <span class="flex flex-wrap gap-x-5 mt-3">
               <img 
                 :src="getPhotos('huis-een.jpeg')"
-                class="w-20 h-20 object-cover"
+                class="w-20 h-20 md:w-36 md:h-36 object-cover"
               />
+              <img 
+                :src="getPhotos('huis-twee.jpeg')"
+                class="w-20 h-20 md:w-36 md:h-36 object-cover"
+              />
+              <img 
+                :src="getPhotos('huis-drie.jpeg')"
+                class="w-20 h-20 md:w-36 md:h-36  object-cover"
+              />
+              </span>
             </p>
           </section>
-            <li class="static-list text-header-color">
+          <section class="list-none py-4 border-b-[1px] mb-3">
+            <h2 class="static-list text-header-color">
               <v-icon 
                 :name="icons.damage" 
                 class="static-list-icons" 
               />
               Achterstallig onderhoud
-            </li>
-            <li class="static-list text-header-color">
+            </h2>
+            <p class="paragraph-completed">
+              <span>Locatie achterstallig onderhoud:</span>
+              {{ inspection.overdueMaintenance.location }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Soort onderhoud:</span>
+              {{ inspection.overdueMaintenance.typeOfMaintenance }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Vereiste actie:</span>
+              {{ inspection.overdueMaintenance.requiredAction }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Kosten Indicatie:</span>
+              {{ inspection.overdueMaintenance.estimatedCost }}
+            </p>
+            <p class="paragraph-completed border-none">
+              <span>Foto's achterstallig onderhoud:</span>
+              <span class="flex flex-wrap gap-x-5 mt-3">
+              <img 
+                :src="getPhotos('huis-een.jpeg')"
+                class="w-20 h-20 md:w-36 md:h-36 object-cover"
+              />
+              <img 
+                :src="getPhotos('huis-twee.jpeg')"
+                class="w-20 h-20 md:w-36 md:h-36 object-cover"
+              />
+              <img 
+                :src="getPhotos('huis-drie.jpeg')"
+                class="w-20 h-20 md:w-36 md:h-36  object-cover"
+              />
+              </span>
+            </p>
+          </section>
+          <section class="list-none py-4 border-b-[1px] mb-3">
+            <h2 class="static-list text-header-color">
               <v-icon 
                 :name="icons.power" 
                 class="static-list-icons" 
               />
               Technische installaties
-            </li>
-            <section>
-            <h3 class="static-list text-header-color">
+            </h2>
+            <p class="paragraph-completed">
+              <span>Locatie Installatie:</span>
+              {{ inspection.technicalInstallation.location }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Soort Installatie:</span>
+              {{ inspection.technicalInstallation.typeOfInstallation }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Omschrijving van de storing:</span>
+              {{ inspection.technicalInstallation.reportedFailures }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Testresultaat:</span>
+              {{ inspection.technicalInstallation.approved }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Opmerkingen over installatie:</span>
+              {{ inspection.technicalInstallation.comments }}
+            </p>
+            <p class="paragraph-completed border-none">
+              <span>Foto's Installatie:</span>
+              <span class="flex flex-wrap gap-x-5 mt-3">
+              <img 
+                :src="getPhotos('huis-een.jpeg')"
+                class="w-20 h-20 md:w-36 md:h-36 object-cover"
+              />
+              <img 
+                :src="getPhotos('huis-twee.jpeg')"
+                class="w-20 h-20 md:w-36 md:h-36 object-cover"
+              />
+              <img 
+                :src="getPhotos('huis-drie.jpeg')"
+                class="w-20 h-20 md:w-36 md:h-36  object-cover"
+              />
+              </span>
+            </p>
+          </section>
+          <section>
+            <h2 class="static-list text-header-color">
               <v-icon 
                 :name="icons.tools" 
                 class="static-list-icons" 
               />
               Aanpassingen
-            </h3>
+            </h2>
+            <p class="paragraph-completed">
+              <span>Locatie van de aanpassing:</span>
+              {{ inspection.modifications.location }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Aanpassing uitgevoerd door:</span>
+              {{ inspection.modifications.carriedOutBy }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Omschrijving van de aanpassing:</span>
+              {{ inspection.modifications.description }}
+            </p>
+            <p class="paragraph-completed">
+              <span>Te ondernemen actie:</span>
+              {{ inspection.modifications.actionToTake }}
+            </p>
+            <p class="paragraph-completed border-none">
+              <span>Foto's Aanpassingen:</span>
+              <span class="flex flex-wrap gap-x-5 mt-3">
+              <img 
+                :src="getPhotos('huis-een.jpeg')"
+                class="w-20 h-20 md:w-36 md:h-36 object-cover"
+              />
+              <img 
+                :src="getPhotos('huis-twee.jpeg')"
+                class="w-20 h-20 md:w-36 md:h-36 object-cover"
+              />
+              <img 
+                :src="getPhotos('huis-drie.jpeg')"
+                class="w-20 h-20 md:w-36 md:h-36  object-cover"
+              />
+              </span>
+            </p>
           </section>
         </div>
         <router-link 
@@ -176,7 +293,7 @@ export default {
   mixins: [mixin],
   data() {
     return {
-      icons
+      icons,
     }
   },
     components: {
@@ -185,6 +302,9 @@ export default {
     BackButton
   },
   computed: {
+    isCompleted(){
+      return JSON.parse(localStorage.getItem('test'))
+    },
     sorted() {
       return this.$store.getters['inspectionData/sortInspections']
     },
@@ -193,9 +313,6 @@ export default {
     },
     error() {
       return this.$store.state.inspectionData.errors.length > 0
-    },
-    isNotCompleted() {
-      return this.$store.getters === false
     },
     user() {
       const data = this.$store.getters['firebase/user']

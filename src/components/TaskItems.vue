@@ -3,7 +3,7 @@
 w-full bg-[#00AAA2]  xl:py-0 px-8">
   <router-link 
     class="task-container"
-    :to="'/active/' + id"
+    to="/active"
   >
     <v-icon 
       :name="icons.wrench" 

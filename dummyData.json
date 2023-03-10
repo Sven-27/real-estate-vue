@@ -15,40 +15,28 @@
           "typeOfDamage": "Slijtage",
           "date": "2023-04-07",
           "requiredAction": "Direct actie ondernemen",
-          "description": "Dakbeschot vervangen wegens rotte plekken",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "description": "Dakbeschot vervangen wegens rotte plekken"
         },
       "overdueMaintenance": {
           "location": "Badkamer",
           "typeOfMaintenance": "schilderwerk, tegels",
-          "requiredAction": "no",
-          "estimatedCost": "500-1.500",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "requiredAction": "In later stadium",
+          "estimatedCost": "500-1.500"
         },
       "technicalInstallation": {
           "location": "Meterkast gang",
           "typeOfInstallation": "Meterkast vervangen",
           "reportedFailures": "Knoppen van meterkast functioneren niet naar behoren",
           "testProcedure": "link naar pdf....",
-          "approved": "nee",
-          "comments": "Meterkast voldoet niet meer aan de huidige eisen",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "approved": "Afgekeurd",
+          "comments": "Meterkast voldoet niet meer aan de huidige eisen"
         },
       "modifications": {
           "existingDocs": "link naar pdf...",
           "location": "Keuken",
           "carriedOutBy": "Huurder",
           "actionToTake": "Accepteren",
-          "description": "Keukenkastjes niet orgineel",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "description": "Keukenkastjes niet orgineel"
         }
       },
     {
@@ -66,40 +54,28 @@
           "typeOfDamage": "Moedwillig",
           "date": "2022-10-23",
           "requiredAction": "Direct actie ondernemen",
-          "description": "Vloer moet opnieuw geegaliseerd worden",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "description": "Vloer moet opnieuw geegaliseerd worden"
         },
       "overdueMaintenance": {
           "location": "Tuin",
           "typeOfMaintenance": "Stal vervangen en opnieuw bestraten",
-          "requiredAction": "ja",
-          "estimatedCost": "1.500+",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "requiredAction": "acute actie",
+          "estimatedCost": "1.500+"
         },
       "technicalInstallation": {
           "location": "Ventilatie badkamer",
           "typeOfInstallation": "Ventilatie raam",
           "reportedFailures": "Gaat niet meer open",
           "testProcedure": "link naar pdf....",
-          "approved": "nee",
-          "comments": "Ventilatie vraagt om onderhoud",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "approved": "Afgekeurd",
+          "comments": "Ventilatie vraagt om onderhoud"
         },
       "modifications": {
           "existingDocs": "link naar pdf...",
           "location": "Toilet",
           "carriedOutBy": "Onbekend",
           "actionToTake": "Laten verwijderen",
-          "description": "Tegels zijn vervangen door kunststof wand",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "description": "Tegels zijn vervangen door kunststof wand"
         }
       },
       {
@@ -117,40 +93,28 @@
           "typeOfDamage": "Normaal gebruik",
           "date": "2023-03-01",
           "requiredAction": "Kan nog wachten",
-          "description": "Plinten beschadigd",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "description": "Plinten beschadigd"
         },
       "overdueMaintenance": {
           "location": "Slaapkamer",
           "typeOfMaintenance": "Beglazing",
-          "requiredAction": "ja",
-          "estimatedCost": "500-1.500",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "requiredAction": "acute actie",
+          "estimatedCost": "500-1.500"
         },
       "technicalInstallation": {
           "location": "Kelder",
           "typeOfInstallation": "Waterleiding",
           "reportedFailures": "Waterleiding lekt",
           "testProcedure": "link naar pdf....",
-          "approved": "nee",
-          "comments": "Leidingen moeten vervangen worden",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "approved": "afgekeurd",
+          "comments": "Leidingen moeten vervangen worden"
         },
       "modifications": {
           "existingDocs": "link naar pdf...",
           "location": "Slaapkamer",
           "carriedOutBy": "Huurder",
           "description": "Schrootjes tegen plafond geplakt",
-          "actionToTake": "Laten verwijderen",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "actionToTake": "Laten verwijderen"
         }
       },
       {
@@ -168,40 +132,28 @@
           "typeOfDamage": "geweld",
           "date": "2023-01-22",
           "requiredAction": "Kan nog wachten",
-          "description": "Garagepoort is vernield",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "description": "Garagepoort is vernield"
         },
       "overdueMaintenance": {
           "location": "Buiten",
           "typeOfMaintenance": "Dakgoten",
-          "requiredAction": "ja",
-          "estimatedCost": "0-500",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "requiredAction": "acute actie",
+          "estimatedCost": "0-500"
         },
       "technicalInstallation": {
           "location": "Verwarmingsketel zolder",
           "typeOfInstallation": "Verwarming",
           "reportedFailures": "Verwarmingsketel heeft deukjes en is bekrast",
           "testProcedure": "link naar pdf....",
-          "approved": "ja",
-          "comments": "Beschadigingen tasten de werking en de veiligheid niet aan",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "approved": "Goedgekeurd",
+          "comments": "Beschadigingen tasten de werking en de veiligheid niet aan"
         },
       "modifications": {
           "existingDocs": "link naar pdf...",
           "location": "Badkamer",
           "carriedOutBy": "Huurder",
           "description": "2de wasbak geplaatst",
-          "actionToTake": "Accepteren",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "actionToTake": "Accepteren"
         }
       },
       {
@@ -219,40 +171,28 @@
           "typeOfDamage": "calamiteit",
           "date": "2022-11-11",
           "requiredAction": "Direct actie ondernemen",
-          "description": "Schimmel op de muur",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "description": "Schimmel op de muur"
         },
       "overdueMaintenance": {
           "location": "Hele woning",
           "typeOfMaintenance": "Stopdozen",
-          "requiredAction": "ja",
-          "estimatedCost": "0-500",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "requiredAction": "In later stadium",
+          "estimatedCost": "0-500"
         },
       "technicalInstallation": {
           "location": "Beveiligingssysteem",
           "typeOfInstallation": "Alarm",
           "reportedFailures": "Sensoren reageren niet meer",
           "testProcedure": "link naar pdf....",
-          "approved": "nee",
-          "comments": "Sensoren moeten vervangen worden",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "approved": "Afgekeurd",
+          "comments": "Sensoren moeten vervangen worden"
         },
       "modifications": {
           "existingDocs": "link naar pdf...",
           "location": "Stal",
           "carriedOutBy": "Onbekend",
           "description": "De stal is uitgebreid met een extra ruimte",
-          "actionToTake": "Accepteren",
-          "photoOne": "huis-een.jpeg",
-          "photoTwo": "huis-twee.jpeg",
-          "photoThree": "huis-drie.jpeg"
+          "actionToTake": "Laten keuren"
         }
     }
   ]

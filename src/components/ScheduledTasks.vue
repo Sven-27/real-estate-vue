@@ -141,13 +141,17 @@ export default {
   name: 'ScheduledTasks',
   data() {
     return {
-      icons 
+      icons,
+      completed: false,
     }
   },
   components: {
     LoadingStatus,
     Errors,
     BackButton
+  },
+  created() {
+    this.id = +this.$route.params.id
   },
   computed: {
     sorted() {
@@ -158,9 +162,6 @@ export default {
     },
     error() {
       return this.$store.state.inspectionData.errors.length > 0
-    },
-    isNotCompleted() {
-      return this.$store.getters === false
     },
     user() {
       const data = this.$store.getters['firebase/user']

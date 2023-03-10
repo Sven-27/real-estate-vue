@@ -46,6 +46,11 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
+    path: '/active',
+    component: () => import('@/components/NoActivity.vue'), // lazy-loaded
+    meta: { requiresAuth: true }
+  },
+  {
     path: '/active/:id',
     component: () => import('@/components/ActiveInspection.vue'), // lazy-loaded
     meta: { requiresAuth: true }
