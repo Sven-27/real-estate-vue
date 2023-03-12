@@ -25,5 +25,8 @@ export default {
       cards
     }
   },
+  mounted(){
+    this.$store.getters['inspectionData/getInspections']
+  }
 }
 </script>

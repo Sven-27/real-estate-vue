@@ -23,7 +23,7 @@ w-full bg-[#00AAA2]  xl:py-0 px-8">
   </router-link>
   <router-link 
     class="task-container" 
-    to="/inspection"
+    to="/information"
   >
     <v-icon 
       :name="icons.information" 
@@ -40,16 +40,8 @@ export default {
   name: 'TaskItems',
   data() {
     return {
-      icons,
-      id: 2006487
+      icons
     }
-  },
-  computed: {
-    find() {
-      return this.$store.getters['inspectionData/findInspections'](this.id)    }
-  },
-  mounted() {
-    this.$store.dispatch('inspectionData/fetchInspections') // Haalt de inspecties op
   },
 }
 </script>

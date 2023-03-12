@@ -12,7 +12,7 @@
   <div
     class="rounded-none m-5 border border-t-0 border-l-0 border-r-0 border-neutral-200 
     bg-white dark:border-neutral-600 dark:bg-neutral-800 "
-    v-for="inspection in sorted"
+    v-for="inspection in setScheduled"
     :key="inspection.id"
   >
     <h2 class="mb-0" id="heading">
@@ -151,25 +151,30 @@ export default {
     BackButton
   },
   created() {
-    this.id = +this.$route.params.id
+    this.id = +this.$route.params.id // get the id from the url
   },
   computed: {
-    sorted() {
-      return this.$store.getters['inspectionData/sortInspections']
+    // Get the inspection data from the local storage
+    setScheduled(){
+      return JSON.parse(localStorage.getItem('scheduledTasks'))
     },
+    // display loading status when loading
     loading() {
       return this.$store.state.inspectionData.loading === true
     },
+    // display error message when error
     error() {
       return this.$store.state.inspectionData.errors.length > 0
     },
+    // get the user data from the firebase store
     user() {
       const data = this.$store.getters['firebase/user']
       return data.data.displayName
     },
   },
+
   mounted() {
-    this.$store.dispatch('inspectionData/fetchInspections')
+    this.$store.dispatch('inspectionData/fetchInspections') // fetch the inspection data when page is mounted
   },
 }
 </script>

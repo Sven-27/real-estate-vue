@@ -99,7 +99,6 @@ export default {
   
   created() {
     this.id = +this.$route.params.id
-    // this.complete = JSON.parse(localStorage.getItem('test') || '[]')
   },
   data() {
     return {
@@ -117,20 +116,25 @@ export default {
     TechnicalInstallation,
     ModificationItems,
   },
-
   computed: {
    setCompleted() {
     this.$store.getters['inspectionData/findInspections'](this.id).completed = true
     const saveInspection = this.$store.getters['inspectionData/findInspections'](this.id)
-    if(localStorage.getItem('test') === null) {
-      localStorage.setItem('test', '[]')
+    if(localStorage.getItem('completedTasks') === null) {
+      localStorage.setItem('completedTasks', '[]')
     }
-    const test = JSON.parse(localStorage.getItem('test'))
-    test.push(saveInspection)
-      
-    return localStorage.setItem('test', JSON.stringify(test))
+    const completedTasks = JSON.parse(localStorage.getItem('completedTasks'))
+    completedTasks.push(saveInspection)
+    this.setScheduled
+    return localStorage.setItem('completedTasks', JSON.stringify(completedTasks))
     },
-   
+    setScheduled() {
+      const scheduledTasks = JSON.parse(localStorage.getItem('scheduledTasks'))
+      const index = this.$store.getters['inspectionData/findInspections'](this.id)
+      scheduledTasks.splice(index, 1)
+      console.log(scheduledTasks)
+      return localStorage.setItem('scheduledTasks', JSON.stringify(scheduledTasks))
+    },
     findInspections(){
       return this.$store.getters['inspectionData/findInspections'](this.id)
     },

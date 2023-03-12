@@ -10,7 +10,6 @@ export default {
     inspects: [], 
     loading: false,
     errors: [],
-    complete: null,
   },
   getters: {
     sortInspections: state => {
@@ -18,14 +17,10 @@ export default {
         return a.date.localeCompare(b.date)
       })
     },
-    getComplete: state => {
-      const data = localStorage.getItem('test')
-      state.complete = JSON.parse(data) || []
-      state.complete.push(data)
-      localStorage.setItem('array', JSON.stringify(state.complete))
-      return state.complete
-    },
     getInspections: state => {
+      if(!localStorage.getItem('scheduledTasks')) {
+       state.inspects = localStorage.setItem('scheduledTasks', JSON.stringify(state.inspects))
+      }
       return state.inspects
     },
     findInspections: (state) => (id) => {
@@ -39,6 +34,7 @@ export default {
     SET_INSPECTIONS(state, inspections) {
       console.log(state.inspects)
       state.inspects = inspections
+      
     },
     SET_LOADING(state, loading) {
       state.loading = loading

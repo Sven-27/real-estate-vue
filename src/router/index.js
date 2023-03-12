@@ -35,14 +35,9 @@ const routes = [
     component: ResetPassword
   },
   {
-    path: '/inspection',
-    name: 'inspection',
-    component: () => import('@/components/inspectionDetails/InspectionView.vue'), // lazy-loaded
-    meta: { requiresAuth: true }
-  },
-  {
-    path: '/inspection-detail/:id',
-    component: () => import('@/components/inspectionDetails/InspectionDetails.vue'), // lazy-loaded
+    path: '/information',
+    name: 'information',
+    component: () => import('@/components/ProjectInformation.vue'), // lazy-loaded
     meta: { requiresAuth: true }
   },
   {

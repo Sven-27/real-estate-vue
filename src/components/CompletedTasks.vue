@@ -303,7 +303,7 @@ export default {
   },
   computed: {
     isCompleted(){
-      return JSON.parse(localStorage.getItem('test'))
+      return JSON.parse(localStorage.getItem('completedTasks'))
     },
     sorted() {
       return this.$store.getters['inspectionData/sortInspections']
@@ -320,7 +320,7 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('inspectionData/fetchInspections')
+    // this.$store.dispatch('inspectionData/fetchInspections')
   },
 }
 </script>

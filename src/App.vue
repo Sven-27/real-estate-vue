@@ -23,8 +23,10 @@ export default {
     HeaderGlobal,
     TaskItems,
   },
-
-   setup() {
+  mounted() {
+    this.$store.dispatch('inspectionData/fetchInspections')
+   },
+   setup(){
   const store = useStore()
 
   auth.onAuthStateChanged(user => {
@@ -37,9 +39,6 @@ export default {
     return {user}
     
  },
-
-
- 
 }
 </script>
 
