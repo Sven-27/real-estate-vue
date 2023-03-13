@@ -6,27 +6,27 @@
   />
   <span class="text-xl md:text-4xl font-semibold">Information about project</span>
 </div>
-<article class="flex flex-col items-center text-center mx-5">
-  <header>
-    <h1 class="text-4xl font-bold mb-3">Real Estate Vue</h1>
+<article class="flex flex-col md:mx-auto md:w-10/12 xl:w-8/12 items-center text-center mx-5">
+  <header class="info-article">
+    <h1 class="text-4xl md:text-[4rem] font-bold mb-3 md:mb-9">Real Estate Vue</h1>
     <p>Hier vind u het&nbsp;<span class="uppercase font-semibold text-[#00AAA2]">read.me</span>&nbsp;bestand voor dit project</p>
-    <p>Eindopdracht Front-end frameworks<br><span class="text-[#00AAA2] ">Door Sven Notermans</span></p>
+    <p>Eindopdracht Front-end frameworks<br><span class="text-[#00AAA2] ">Door Sven Notermans.</span></p>
   </header>
-  <section>
+  <section class="info-article">
     <h2 class="text-2xl font-bold mt-5 mb-3">Installatie / Gebruik (Local)</h2>
     <p class="mb-3">Om dit project lokaal te gebruiken moet je eerst de volgende stappen uitvoeren:</p>
     <ol class="w-full list-decimal list-inside text-left mx-auto">
       <li>Clone de repository van 
-        <a class="text-[#00AAA2]" href="https://github.com/Sven-27/real-estate-vue">https://github.com/Sven-27/real-estate-vue</a>
+        <a class="text-[#00AAA2]" href="https://github.com/Sven-27/real-estate-vue">https://github.com/Sven-27/real-estate-vue</a>.
       </li>
-      <li>Open de folder in je text-editor and installeer de dependencies met <span class="text-[#00AAA2]">&apos;npm install&apos;</span></li>
-      <li>Start het project met <span class="text-[#00AAA2]">&apos;npm run serve&apos;</span></li>
+      <li>Open de folder in je text-editor and installeer de dependencies met <span class="text-[#00AAA2]">&apos;npm install&apos;</span>.</li>
+      <li>Start het project met <span class="text-[#00AAA2]">&apos;npm run serve&apos;</span>.</li>
     </ol>
     <h2 class="text-2xl font-bold mt-5 mb-3">Live versie:</h2>
     <p class="mb-3">U kunt de live versie vinden via onderstaande link:</p>
-    <a class="text-[#00AAA2]" href="https://real-estate-vue.firebaseapp.com/">https://real-estate-vue.firebaseapp.com/</a>
+    <a class="text-[#00AAA2]" href="https://real-estate-vue.firebaseapp.com/">https://real-estate-vue.firebaseapp.com/</a>.
   </section>
-  <section>
+  <section class="info-article">
     <h2 class="text-2xl font-bold mt-5 mb-3">Ontwikkeling van de app</h2>
     <p>De app is ontwikkeld met Vue.js en tailwind als user interface laag. Richting het einde van het 
       project ben ik tailwind elements nog tegen gekomen en heb ik deze gebruikt voor de accordion.
@@ -39,7 +39,7 @@
     Ik heb er zo goed als ik kon rekening gehouden met de gebruikersvriendelijkheid om het in ieder geval zo makkelijk
     mogelijk te maken voor de werknemers.</p>
   </section>
-  <section>
+  <section class="info-article">
     <h2 class="text-2xl font-bold mt-5 mb-3">Inloggen / Authenticatie</h2>
     <p>Voor het inlog / registratie gedeelte heb ik firebase Authentication gebruikt.
     Achter de schermen wordt de validatie afgehandeld door firebase. 
@@ -52,7 +52,7 @@
     kosten om het allemaal uit te zoeken. Dit geldt ook voor de two-factor. Misschien dat ik dat nog ga toevoegen als de opleiding is afgerond.
     </p>
   </section>
-  <section>
+  <section class="info-article">
     <h2 class="text-2xl font-bold mt-5 mb-3">Layout App</h2>
     <p>De layout bestaat uit 3 lagen.
     De eerste laag is de header. Hier vind je de status balk van de telefoon en de header 
@@ -61,7 +61,7 @@
     De derde laag is de footer. Hier zijn buttons om naar activity, search en information te gaan. 
     </p>
   </section>
-  <section>
+  <section class="info-article">
     <h2 class="text-2xl font-bold mt-5 mb-3">De belangrijkste pagina's opgesomt.</h2>
     <h3 class="text-xl font-bold mt-5 mb-3">Dashboard</h3>
     <p>
@@ -85,9 +85,9 @@
     <p>Hier vind je alle documenten die belangrijk zijn aangaande de inspecties. Zoals procedures, keuringen, Handleidingen, enz.</p>
     <h3 class="text-xl font-bold mt-5 mb-3">Settings</h3>
     <p>Dit is de account pagina van de medewerker. Hier staan alle gegevens en mogelijkheden met betrekking tot instellingen.
-    Zoals account verwijderen.</p>
+    Zoals account verwijderen. De naam en de email zijn dynamisch.</p>
   </section>
-  <section>
+  <section class="info-article">
     <h2 class="text-2xl font-bold mt-5 mb-3">Verantwoording</h2>
     <h3 class="text-xl font-bold mt-5 mb-3">Security</h3>
     <p>Voor de authenticatie heb ik firebase gebruikt. Ik gebruik de validatie die bij firebase authenticatie zit. 
@@ -98,11 +98,40 @@
     <ol class="w-full list-decimal list-inside text-left mx-auto">
       <li>Ervan uitgaand dat het om een Nederlands bedrijf is, is deze app 
       ook in het Nederlands ontwikkeld.</li>
-      <li>Complete</li>
-      <li>Knowlegde base</li>
-      <li>Settings</li>
+      <li>De pagina's zijn zo opgezet dat ze overal dezelfde feeling hebben en daarom ook als een geheel aanvoelen.</li>
+      <li>Iedere pagina heeft een back button die weer terug navigeert naar de dashboard.</li>
+      <li>Er is een darkmodus functie voor de gebruikers die dat fijn vinden en staat in de header zodat je er altijd bij kan.</li>
+      <li>Vanuit de scheduled is het mogelijk om naar de checklist te gaan en je werkorder te bewerken. Ook als de order al in 
+      completed staat heb je de mogelijkheid om je order nog te bewerken als dat nodig mocht zijn.</li>
+      <li>In de knowledgebase kan de medewerker alle infomatie vinden wat hij nodig heeft. Allemaal op een plek.</li>
+      <li>Voor elke order is er een accordion gebruikt die uitgeklapt kan worden zodat het overzicktelijk en compact blijft.</li>
+      <li>Er is een search pagina waar de medewerker kan zoeken naar betreffende informatie. Plus buttons om direct naar de andere pagina's te gaan.</li>
+      <li>Medewerkers moeten eerst alles naar waarheid in gevuld aanvinken alvorens ze het op completed kunnen zetten.</li>
+      <li>Er is gebruikt gemaakt van de localstorage om de gegevens op te slaan en het te saven in scheduled of complete.</li>
+      <li>Bepaalde velden zijn required om in te vullen. De submit functie om dat de checken zit er nu nog niet in. Wellicht dat ik dat in 
+      een later stadium toevoeg.</li>
+      <li>Er zit errorhandling en loading status in.</li>
     </ol>
+    <h3 class="text-xl font-bold mt-5 mb-3">Accessibility</h3>
+    <p>Om aan de richtlijnen van de WCAG 2.1 te voldoen, heb ik bij de invoervelden een focus geplaatst zodat
+    het ook duidelijk is dat die invoerveld actief is. Elk veld heeft een label met wat daar ingevuld dient te worden.
+    Op elke pagina staat de naam van de pagina en een korte omschrijving van de medewerker daar kan doen.
+    Afbeeldingen zijn decoratief.</p>
+    <h3 class="text-xl font-bold mt-5 mb-3">Style Guides</h3>
+    <p>Ik heb zoveel mogelijk de guidelines aangehouden met betrekking tot het werken met Vue.js.
+    Zoals de multi-word components. Ook in hoe de v-for en de v-if te gebruiken. Zoals dat die 2 nooit samen in een elementen
+    kunnen staan. Ook met het gebruik van lifecyclehooks en composition api.</p>
   </section>
+  <footer class="info-article">
+    <h3 class="text-xl font-bold mt-5 mb-3">Afsluiting</h3>
+    <p>Tijdens deze eindopracht heb ik mogen werken met een framework die voor mij nog totaal nieuw was en 
+    moet ik zeggen dat ik vue wel een mooi framework vind om mee te werken en zal ik zeker nog projecten hiermee
+    gaan maken.</p><br>
+    <p>Bij deze wil ik jullie bedanken voor de begeleiding tijdens deze module en wens ik jullie veel plezier tijdens het beoordelen 
+    van deze eindopdracht.</p><br>
+    <p>Met vriendelijke groet,</p><br>
+    <p>Sven Notermans</p>
+  </footer>
 </article>
 <BackButton />
 </template>
