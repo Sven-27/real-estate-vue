@@ -38,6 +38,7 @@
       Delete account
     </button>
   </div>
+  <BackButton />
   </section>
   <div v-if="msg" class="text-red-500 text-center">
     {{ msg }}
@@ -50,6 +51,7 @@ import icons from '@/data/icons'
 import { auth } from '@/firebaseConfig'
 import { deleteUser } from 'firebase/auth' 
 import { useRouter } from 'vue-router'
+import BackButton from '@/components/buttons/BackButton.vue'
 
 export default {
   name: 'SettingTasks',
@@ -60,11 +62,14 @@ export default {
       msg: '',
     }
   },
+  components: {
+    BackButton,
+  },
   methods: {
-    deleteAccount() {
+    deleteAccount() { // Delete account
     const user = auth.currentUser;
      
-    deleteUser(user).then(() => {
+    deleteUser(user).then(() => { // Delete user from firebase
       this.msg = 'Account deleted'
       this.router.push('/login')
       }).catch((error) => {
@@ -73,11 +78,11 @@ export default {
     },
   },
   computed: {
-    user() {
+    user() { // Get user from firebase
       const data = this.$store.getters['firebase/user']
       return data.data.displayName
     },
-    email(){
+    email(){ // Get email from firebase
       const data = this.$store.getters['firebase/user']
       return data.data.email
     },

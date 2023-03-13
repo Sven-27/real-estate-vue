@@ -1,3 +1,4 @@
+// Model for the dummy data
 export class Inspections {
     idType = "";
     id = null;

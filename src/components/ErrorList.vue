@@ -7,7 +7,7 @@
 export default {
   name: 'ErrorList',
   computed: {
-    errorList() {
+    errorList() { // Get error list from store
       return this.$store.state.inspectionData.errorList
     },
   }

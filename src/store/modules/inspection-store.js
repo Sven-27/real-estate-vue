@@ -1,3 +1,4 @@
+// This store fetches the inspections from the database and stores them in the state.
 import axios from 'axios'
 import { Inspections } from '@/models/dummyDataModel'
 
@@ -12,12 +13,12 @@ export default {
     errors: [],
   },
   getters: {
-    sortInspections: state => {
+    sortInspections: state => {  // Sort data by date
       return state.inspects.sort((a, b) => {
         return a.date.localeCompare(b.date)
       })
     },
-    getInspections: state => {
+    getInspections: state => { // stashes the inspections in local storage
       if(!localStorage.getItem('scheduledTasks')) {
        state.inspects = localStorage.setItem('scheduledTasks', JSON.stringify(state.inspects))
       }
@@ -31,20 +32,20 @@ export default {
     },
   },
   mutations: {
-    SET_INSPECTIONS(state, inspections) {
+    SET_INSPECTIONS(state, inspections) { // Set the inspections in the state
       console.log(state.inspects)
       state.inspects = inspections
       
     },
-    SET_LOADING(state, loading) {
+    SET_LOADING(state, loading) { // Set the loading state
       state.loading = loading
     },
-    SET_ERRORS(state, errors) {
+    SET_ERRORS(state, errors) { // Set the errors in the state
       state.errors = [...state.errors, errors]
     }
   },
   actions: {
-    fetchInspections({ commit }) {
+    fetchInspections({ commit }) { // Fetch the inspections from the database
       commit('SET_LOADING', true)
       axios.get(baseUrl)
         .then(response => {

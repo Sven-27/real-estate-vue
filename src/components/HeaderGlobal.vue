@@ -72,15 +72,15 @@ export default {
   const store = useStore()
   const router = useRouter()
 
-  auth.onAuthStateChanged(user => {
+  auth.onAuthStateChanged(user => { // Check if user is logged in
     store.dispatch("firebase/fetchUser", user);
   });
 
-  const user = computed(() => {
+  const user = computed(() => { // Get user from store
     return store.getters.user;
   });
 
-  const signOut = async () => {
+  const signOut = async () => { // Sign out function
         await store.dispatch('firebase/logOut')
         router.push('/login')
   }

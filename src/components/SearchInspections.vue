@@ -6,6 +6,9 @@
   />
   <span class="text-xl md:text-4xl font-semibold">Search Inspection</span>
 </div>
+  <p class="text-center mb-4 md:mb-6 text-sm md:text-xl">Zoek naar de gewenste informatie door je zoekopdracht in de balk in te vullen.
+  Via de buttons onder de zoekbalk kunt u navigeren naar de gewenste pagina. 
+  </p>
 <div class="mx-3 text-sm md:text-2xl md:mx-auto md:w-[70%] xl:w-[50%]">
   <label for="location-overdue">Vul hier in wat u wilt zoeken:</label>
   <input
@@ -17,11 +20,25 @@
     placeholder="Vul hier in wat u wilt zoeken"
     />
 </div>
-<ButtonToKnowledgebase>Search</ButtonToKnowledgebase>
+<ButtonGeneral>Search</ButtonGeneral>
+<div class="mt-3 md:mt-10">
+  <router-link to="/scheduled">
+    <ButtonGeneral>Scheduled</ButtonGeneral>
+  </router-link>
+  <router-link to="/completed">
+    <ButtonGeneral>Completed</ButtonGeneral>
+  </router-link>
+  <router-link to="/knowledge-base">
+    <ButtonGeneral>Knowledgebase</ButtonGeneral>
+  </router-link>
+  <router-link to="/settings">
+    <ButtonGeneral>Settings</ButtonGeneral>
+  </router-link>
+</div>
 </template>
 <script>
 import icons from '@/data/icons.js'
-import ButtonToKnowledgebase from '@/components/ButtonToKnowledgebase.vue'
+import ButtonGeneral from '@/components/buttons/ButtonGeneral.vue'
 
 export default {
   name: 'SearchInspections',
@@ -31,7 +48,7 @@ export default {
     }
   },
   components: {
-    ButtonToKnowledgebase
+    ButtonGeneral
   }
 }
 </script>

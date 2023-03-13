@@ -86,18 +86,25 @@
         />
       </button>
     </div>
+      <p class="text-[#00AAA2] md:text-xl">{{ msg }}</p>
     <div 
       v-if="error"
       class="text-red-500 text-md">{{ error }}</div>
     </div>
-    <div class="flex justify-center items-center">
+    <div class="flex flex-col justify-center items-center">
       <button 
         type="submit"
         class="bg-[#00AAA2] text-white text-lg md:text-3xl 
-        py-2 px-4 rounded-md mt-4 md:mt-8"
+        py-2 px-4 rounded-md mt-4 md:mt-8 mb-3" 
       >
         Register
       </button>
+      <p class="text-[#293439] text-md md:text-2xl">
+        Naar login?  
+      <router-link to="/login" class="text-[#00AAA2] text-md md:text-2xl">
+         Klik hier
+      </router-link>
+      </p>
     </div>
   </form>
 </div>
@@ -105,7 +112,6 @@
 <script>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
 import icons from '@/data/icons'
 
 export default {
@@ -117,12 +123,12 @@ export default {
     };
   },
   computed: {
-    buttonLabel() {
+    buttonLabel() { // Toggle password visibility button icon
       return (this.showPassword) ? "Hide" : "Show";
     },
   },
   methods: {
-    toggleShow() {
+    toggleShow() { // Toggle password visibility
       this.showPassword = !this.showPassword;
     },
   },
@@ -131,18 +137,18 @@ export default {
     const email = ref('')
     const password = ref('')
     const error = ref(null)
+    const msg = ref('')
 
     const store = useStore()
-    const router = useRouter()
 
-    const Register = async () => {
+    const Register = async () => { // Register user
       try {
         await store.dispatch('firebase/register', {
           email: email.value,
           password: password.value,
           name: name.value
         })
-        router.push('/')
+        msg.value = "Registratie is gelukt"
       }
       catch (err) {
         console.log(err.code)
@@ -168,7 +174,7 @@ export default {
         }
       }
 
-    return { Register, name, email, password, error }
+    return { Register, name, email, password, error, msg }
   }
 };
 </script>

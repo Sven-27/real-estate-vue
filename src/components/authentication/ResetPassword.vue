@@ -31,8 +31,8 @@
       >{{error}}</div>
       <div 
         v-if="msg"
-        class="text-sm md:text-md">{{msg}}</div>
-      <div class="flex justify-center items-center">
+        class="text-[#00AAA2] md:text-xl">{{ msg }}</div>
+      <div class="flex flex-col justify-center items-center">
       <button 
         type="submit"
         class="bg-[#00AAA2] text-white text-lg md:text-3xl 
@@ -40,6 +40,12 @@
       >
         Reset Password
       </button>
+      <p class="text-[#293439] text-md md:text-2xl">
+        Terug naar login?  
+      <router-link to="/login" class="text-[#00AAA2] text-md md:text-2xl">
+         Klik hier
+      </router-link>
+      </p>
     </div>
     </div>
     
@@ -63,7 +69,7 @@ export default {
     };
   },
   methods: {
-    sendEmail() {
+    sendEmail() { // Send email to reset password
       if (!this.email) {
         this.error = "Vul een geldig email in.";
         return;
@@ -74,7 +80,6 @@ export default {
         sendPasswordResetEmail(auth, this.email)
         .then(() => {
           this.msg = "Email is verzonden! Check ook je spambox.";
-          this.$router.push('/login');
           this.emailSending = false;
         })
         .catch(error => {

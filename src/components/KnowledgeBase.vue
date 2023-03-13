@@ -6,6 +6,9 @@
   />
   <span class="text-xl md:text-4xl font-semibold">Knowledgebase</span>
 </div>
+<p class="text-center mb-4 md:mb-6 text-sm md:text-xl">
+  Hier vind je alle documenten die je nodig hebt om je werkzaamheden uit te voeren.
+</p>
 <div id="accordionExample">
   <div
     class=" border mb-6 mx-3 md:mx-auto md:w-[70%] xl:w-[50%] border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
@@ -377,7 +380,7 @@
 
 <script>
 import icons from '@/data/icons.js'
-import BackButton from '@/components/BackButton.vue'
+import BackButton from '@/components/buttons/BackButton.vue'
 
 export default {
   name: 'KnowledgeBase',

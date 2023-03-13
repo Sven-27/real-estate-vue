@@ -6,6 +6,9 @@
   />
   <span class="text-xl md:text-4xl font-semibold">Scheduled</span>
 </div>
+<p class="text-center mb-4 md:mb-6 text-sm md:text-xl">
+  Hieronder staan de geplande inspecties. Klik op een inspectie om te bekijken of te bewerken.
+</p>
 <div id="accordionFlushExample"
   class="md:w-[70%] xl:w-[50%] w-full mx-auto"
 >
@@ -135,7 +138,7 @@
 import icons from '@/data/icons.js'
 import LoadingStatus from '@/components/LoadingStatus.vue'
 import Errors from '@/components/ErrorList.vue'
-import BackButton from '@/components/BackButton.vue'
+import BackButton from '@/components/buttons/BackButton.vue'
 
 export default {
   name: 'ScheduledTasks',

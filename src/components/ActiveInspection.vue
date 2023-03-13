@@ -6,6 +6,9 @@
   />
   <span class="text-xl md:text-4xl font-semibold">Active Task</span>
 </div>
+<p class="text-center mb-4 md:mb-6 text-sm md:text-xl">
+  Hier kunt u de gekozen inspectie invullen en opslaan.
+</p>
   <div
     class="flex card  md:mt-2 flex-col text-sm md:text-2xl px-3
     md:w-[70%] xl:w-[50%] w-full mx-auto" 
@@ -88,7 +91,7 @@
 import LoadingStatus from '@/components/LoadingStatus.vue'
 import Errors from '@/components/ErrorList.vue'
 import icons from '@/data/icons.js'
-import BackButton from '@/components/BackButton.vue'
+import BackButton from '@/components/buttons/BackButton.vue'
 import SurveyOfDamage from '@/components/categoryForms/SurveyOfDamage.vue'
 import OverdueMaintenance from '@/components/categoryForms/OverdueMaintenance.vue'
 import TechnicalInstallation from '@/components/categoryForms/TechnicalInstallation.vue'
@@ -117,7 +120,7 @@ export default {
     ModificationItems,
   },
   computed: {
-   setCompleted() {
+   setCompleted() { // pushes inspection to completed tasks in localstorage
     this.$store.getters['inspectionData/findInspections'](this.id).completed = true
     const saveInspection = this.$store.getters['inspectionData/findInspections'](this.id)
     if(localStorage.getItem('completedTasks') === null) {
@@ -128,32 +131,32 @@ export default {
     this.setScheduled
     return localStorage.setItem('completedTasks', JSON.stringify(completedTasks))
     },
-    setScheduled() {
+    setScheduled() { // filters inspection by id and removes it from scheduled tasks in localstorage
       const scheduledTasks = JSON.parse(localStorage.getItem('scheduledTasks'))
       const index = this.$store.getters['inspectionData/findInspections'](this.id)
       scheduledTasks.splice(index, 1)
       console.log(scheduledTasks)
       return localStorage.setItem('scheduledTasks', JSON.stringify(scheduledTasks))
     },
-    findInspections(){
+    findInspections(){ // find inspections by id
       return this.$store.getters['inspectionData/findInspections'](this.id)
     },
-    filterInspections(){
+    filterInspections(){ // filter inspections by id
       return this.$store.getters['inspectionData/filterInspections'](this.id)
     },
-    loading() {
+    loading() { // check if data is loading
       return this.$store.state.inspectionData.loading === true
     },
-    error() {
+    error() { // check if there are errors
       return this.$store.state.inspectionData.errors.length > 0
     },
-    user() {
+    user() { // get user data from firebase
       const data = this.$store.getters['firebase/user']
       return data.data.displayName
     },
   },   
   mounted() {
-    this.$store.dispatch('inspectionData/fetchInspections') // Haalt de inspecties op
+    this.$store.dispatch('inspectionData/fetchInspections') // fetches inspections
   },
 }
 </script>

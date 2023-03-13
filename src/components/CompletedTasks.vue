@@ -6,6 +6,10 @@
   />
   <span class="text-xl md:text-4xl font-semibold">Inspectie(s) afgehandeld</span>
 </div>
+<p class="text-center mb-4 md:mb-6 text-sm md:text-xl">
+  Hieronder vindt u een overzicht van de inspecties die u heeft afgerond. 
+  Klik op een inspectie om de checklist te bekijken of te bewerken.
+</p>
 <div id="accordionFlushExample"
   class=" md:w-[80%] xl:w-[50%] w-full mx-auto"
 >
@@ -286,7 +290,7 @@ import icons from '@/data/icons'
 import mixin from '@/mixins/mixins'
 import LoadingStatus from '@/components/LoadingStatus.vue'
 import Errors from '@/components/ErrorList.vue'
-import BackButton from '@/components/BackButton.vue'
+import BackButton from '@/components/buttons/BackButton.vue'
 
 export default {
   name: 'CompletedTasks',
@@ -301,26 +305,23 @@ export default {
     Errors,
     BackButton
   },
-  computed: {
-    isCompleted(){
+  computed: { 
+    isCompleted(){ // check if inspection is completed
       return JSON.parse(localStorage.getItem('completedTasks'))
     },
-    sorted() {
+    sorted() { // get sorted inspections
       return this.$store.getters['inspectionData/sortInspections']
     },
-    loading() {
+    loading() { // check if data is loading
       return this.$store.state.inspectionData.loading === true
     },
-    error() {
+    error() { // check if there are errors
       return this.$store.state.inspectionData.errors.length > 0
     },
-    user() {
+    user() { // get user data from firebase
       const data = this.$store.getters['firebase/user']
       return data.data.displayName
     },
-  },
-  mounted() {
-    // this.$store.dispatch('inspectionData/fetchInspections')
   },
 }
 </script>

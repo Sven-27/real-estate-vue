@@ -24,17 +24,17 @@ export default {
     TaskItems,
   },
   mounted() {
-    this.$store.dispatch('inspectionData/fetchInspections')
+    this.$store.dispatch('inspectionData/fetchInspections') // loads inspections data to store de scheduled inspections in localstorage
    },
    setup(){
   const store = useStore()
 
   auth.onAuthStateChanged(user => {
-    store.dispatch("firebase/fetchUser", user);
+    store.dispatch("firebase/fetchUser", user); // fetches the user from firebase and stores it in the store
   });
 
   const user = computed(() => {
-    return store.getters['firebase/user'];
+    return store.getters['firebase/user']; // retrieves the user from the store
   });
     return {user}
     
@@ -91,6 +91,17 @@ export default {
   }
   .paragraph-completed{
     @apply flex flex-col my-2 pb-2 border-b-[1px] border-[#ddd] dark:border-[#444] 
+  }
+  .info-article > p,
+  .info-article > ol,
+  .info-article a {
+    @apply text-sm md:text-xl
+  }
+  .info-article > h2 {
+    @apply text-2xl md:text-4xl font-bold mt-5 mb-3
+  }
+  .info-article > h3 {
+    @apply text-xl md:text-2xl font-bold mt-5 mb-3
   }
 }
 

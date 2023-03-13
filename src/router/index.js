@@ -7,10 +7,12 @@ import ScheduledTasks from '@/components/ScheduledTasks.vue'
 import CompletedTasks from '@/components/CompletedTasks.vue'
 import KnowledgeBase from '@/components/KnowledgeBase.vue'
 import SettingTasks from '@/components/SettingTasks.vue'
-import LoginPage from '@/components/LoginPage.vue'
-import RegisterPage from '@/components/RegisterPage.vue'
-import ResetPassword from '@/components/ResetPassword.vue'
+import LoginPage from '@/components/authentication/LoginPage.vue'
+import RegisterPage from '@/components/authentication/RegisterPage.vue'
+import ResetPassword from '@/components/authentication/ResetPassword.vue'
 import SearchInspections from '@/components/SearchInspections.vue'
+
+// Routes for navigation to different pages
 
 const routes = [
   {
@@ -82,12 +84,12 @@ const routes = [
   },
 ]
 
-const router = createRouter({
+const router = createRouter({ // Create the router
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
-function getCurrentUser() {
+function getCurrentUser() { // Get the current user
   return new Promise((resolve, reject) => {
     const unsubscribe = onAuthStateChanged(
       auth,
@@ -100,7 +102,7 @@ function getCurrentUser() {
   })
 }
 
-router.beforeEach(async (to) => {
+router.beforeEach(async (to) => { // Check if the user is logged in
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
   if (requiresAuth && !(await getCurrentUser())) {
     return '/login'

@@ -1,3 +1,4 @@
+// icons to use in project globally
 export default {
   square: "bi-square-fill",
   circle: "bi-circle-fill",

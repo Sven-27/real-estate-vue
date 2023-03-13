@@ -10,10 +10,10 @@
   <header class="info-article">
     <h1 class="text-4xl md:text-[4rem] font-bold mb-3 md:mb-9">Real Estate Vue</h1>
     <p>Hier vind u het&nbsp;<span class="uppercase font-semibold text-[#00AAA2]">read.me</span>&nbsp;bestand voor dit project</p>
-    <p>Eindopdracht Front-end frameworks<br><span class="text-[#00AAA2] ">Door Sven Notermans.</span></p>
+    <p>Eindopdracht Front-end frameworks<br>Door&nbsp;<span class="text-[#00AAA2] ">Sven Notermans.</span></p>
   </header>
   <section class="info-article">
-    <h2 class="text-2xl font-bold mt-5 mb-3">Installatie / Gebruik (Local)</h2>
+    <h2>Installatie / Gebruik (Local)</h2>
     <p class="mb-3">Om dit project lokaal te gebruiken moet je eerst de volgende stappen uitvoeren:</p>
     <ol class="w-full list-decimal list-inside text-left mx-auto">
       <li>Clone de repository van 
@@ -22,12 +22,12 @@
       <li>Open de folder in je text-editor and installeer de dependencies met <span class="text-[#00AAA2]">&apos;npm install&apos;</span>.</li>
       <li>Start het project met <span class="text-[#00AAA2]">&apos;npm run serve&apos;</span>.</li>
     </ol>
-    <h2 class="text-2xl font-bold mt-5 mb-3">Live versie:</h2>
+    <h2>Live versie:</h2>
     <p class="mb-3">U kunt de live versie vinden via onderstaande link:</p>
     <a class="text-[#00AAA2]" href="https://real-estate-vue.firebaseapp.com/">https://real-estate-vue.firebaseapp.com/</a>.
   </section>
   <section class="info-article">
-    <h2 class="text-2xl font-bold mt-5 mb-3">Ontwikkeling van de app</h2>
+    <h2>Ontwikkeling van de app</h2>
     <p>De app is ontwikkeld met Vue.js en tailwind als user interface laag. Richting het einde van het 
       project ben ik tailwind elements nog tegen gekomen en heb ik deze gebruikt voor de accordion.
       En voor sommige elementen binnen de formulier. Voor authenticatie heb ik firebase gebruikt. 
@@ -40,7 +40,7 @@
     mogelijk te maken voor de werknemers.</p>
   </section>
   <section class="info-article">
-    <h2 class="text-2xl font-bold mt-5 mb-3">Inloggen / Authenticatie</h2>
+    <h2>Inloggen / Authenticatie</h2>
     <p>Voor het inlog / registratie gedeelte heb ik firebase Authentication gebruikt.
     Achter de schermen wordt de validatie afgehandeld door firebase. 
     In eerste instantie kom je op het inlogscherm uit. 
@@ -53,7 +53,7 @@
     </p>
   </section>
   <section class="info-article">
-    <h2 class="text-2xl font-bold mt-5 mb-3">Layout App</h2>
+    <h2>Layout App</h2>
     <p>De layout bestaat uit 3 lagen.
     De eerste laag is de header. Hier vind je de status balk van de telefoon en de header 
     met de logo links en rechs button (logout, darkmode en settings).
@@ -62,7 +62,7 @@
     </p>
   </section>
   <section class="info-article">
-    <h2 class="text-2xl font-bold mt-5 mb-3">De belangrijkste pagina's opgesomt.</h2>
+    <h2>De belangrijkste pagina's opgesomt.</h2>
     <h3 class="text-xl font-bold mt-5 mb-3">Dashboard</h3>
     <p>
       De Dashboard is de eerste pagina waar je uitkomt als je ingelogd bent.
@@ -88,7 +88,7 @@
     Zoals account verwijderen. De naam en de email zijn dynamisch.</p>
   </section>
   <section class="info-article">
-    <h2 class="text-2xl font-bold mt-5 mb-3">Verantwoording</h2>
+    <h2>Verantwoording</h2>
     <h3 class="text-xl font-bold mt-5 mb-3">Security</h3>
     <p>Voor de authenticatie heb ik firebase gebruikt. Ik gebruik de validatie die bij firebase authenticatie zit. 
     Dit heb ik niet gecustomized omdat het me anders teveel tijd kost, geldt ook voor de two-factor, dit komt wellicht in een later stadium. 
@@ -137,7 +137,7 @@
 </template>
 <script>
 import icons from '@/data/icons.js'
-import BackButton from '@/components/BackButton.vue'
+import BackButton from '@/components/buttons/BackButton.vue'
 
 export default {
   name: 'ProjectInformation',

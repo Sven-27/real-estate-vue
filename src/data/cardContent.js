@@ -1,3 +1,4 @@
+// Data for the cards on the dashboard
 export default {
   cards: [
     {
@@ -14,7 +15,7 @@ export default {
     },
     {
       id: 3,
-      title: 'Knowledge Base',
+      title: 'Knowledgebase',
       logo: 'io-apps',
       link: 'knowledge-base'
     },

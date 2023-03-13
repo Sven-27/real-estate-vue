@@ -118,8 +118,8 @@ export default {
       showPassword: false,
     };
   },
-  methods: {
-    toggleShow() {
+  methods: { 
+    toggleShow() { // Toggle password visibility
       this.showPassword = !this.showPassword;
     },
   },
@@ -131,7 +131,7 @@ export default {
     const store = useStore()
     const router = useRouter()
     
-    const Login = async () => {
+    const Login = async () => { // Login function
       try {
         await store.dispatch('firebase/logIn', {
           email: email.value,

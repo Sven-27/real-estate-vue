@@ -19,13 +19,13 @@ export default {
       icons,
     }
   },
-  setup() { 
-    const userTheme = localStorage.getItem('theme');
+  setup() {  
+    const userTheme = localStorage.getItem('theme'); // Get theme from localStorage
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const showIcon = ref(false)
 
-  // Initial Theme check
-    const themeCheck = () => {
+  // Initial Theme check 
+    const themeCheck = () => {  //
       if(userTheme === "dark" || (!userTheme && systemTheme)) {
         document.body.classList.add("dark");    
         showIcon.value = true;
@@ -35,12 +35,12 @@ export default {
       }
     }
 
-    const toggleIcon = () => {
+    const toggleIcon = () => { // Toggle Icon
       showIcon.value = !showIcon.value
     }
 
     // Manual Theme Switch
-    const themeSwitch = () => {
+    const themeSwitch = () => { // Manual Theme Switch
       if(document.body.classList.contains("dark")) {
         document.body.classList.remove("dark");
         localStorage.setItem('theme', 'light');
@@ -48,12 +48,12 @@ export default {
         return;
       }
       document.body.classList.add("dark");
-      localStorage.setItem('theme', 'dark');
+      localStorage.setItem('theme', 'dark'); // Save theme to localStorage
       toggleIcon()
     }
 
 
-    onMounted(() => {
+    onMounted(() => { // Initial Theme check
       themeCheck();
     })
 

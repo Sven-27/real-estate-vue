@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
-import { OhVueIcon, addIcons } from "oh-vue-icons";
-import firebase from "firebase/compat/app";
-import * as te from 'tw-elements';
+import router from './router' // import router
+import store from './store' // import store state management
+import { OhVueIcon, addIcons } from "oh-vue-icons"; // icons library
+import firebase from "firebase/compat/app"; // firebase
+import * as te from 'tw-elements'; // tailwind elements
 
 
 import { 
@@ -35,7 +35,7 @@ import {
 
 } from "oh-vue-icons/icons";
 
-
+// Add icons to project globally
 addIcons(
   BiSquareFill, 
   BiCircleFill, 

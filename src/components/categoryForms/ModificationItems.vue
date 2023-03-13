@@ -123,7 +123,7 @@
 </template>
 <script>
 import icons from '@/data/icons'
-import ButtonToKnowledgebase from '@/components/ButtonToKnowledgebase.vue'
+import ButtonToKnowledgebase from '@/components/buttons/ButtonToKnowledgebase.vue'
 
 export default {
   name: 'ModificationItems',

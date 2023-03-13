@@ -10,7 +10,7 @@
   <BackButton />
 </template>
 <script>
-import BackButton from '@/components/BackButton.vue'  
+import BackButton from '@/components/buttons/BackButton.vue'  
 import icons from '@/data/icons.js'
 
 export default {
