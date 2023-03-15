@@ -2,7 +2,8 @@
 import axios from 'axios'
 import { Inspections } from '@/models/dummyDataModel'
 
-const baseUrl = 'http://localhost:3000/inspections'
+// const baseUrl = 'http://localhost:3000/inspections' // local database
+const baseUrl = 'https://powerful-uniform-bass.cyclic.app/inspections' // live online database
 
 export default {
   namespaced: true,
@@ -51,6 +52,7 @@ export default {
         .then(response => {
           commit('SET_LOADING', false)
           commit('SET_INSPECTIONS', response.data.map(item => new Inspections(item)))
+          console.log(response.data)
         })
         .catch(error => {
           commit('SET_ERRORS', error)
